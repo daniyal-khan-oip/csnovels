@@ -11,7 +11,7 @@ function Top10Mapper({ item, index, onClick }) {
       <div className="top10Books-details">
         <p className="top10-book-title">{item.name}</p>
         <p className="top10-book-genre">{item.genre}</p>
-        <div className="d-flex flex-row align-items-center">
+        <div className="star-and-rating">
           <StarRatings
             starDimension={12}
             rating={item.rating}

@@ -23,7 +23,7 @@ import BOOK12 from "../Assets/Images/top10/12.png";
 import URBAN from "../Assets/Images/urban.png";
 import SCIFI from "../Assets/Images/scifi.png";
 import FANTASY from "../Assets/Images/fantasy.png";
-import Countdown from 'react-countdown';
+import Countdown from "react-countdown";
 import SLIDE_IMAGE_1 from "../Assets/Images/slide-image.png";
 import SLIDE_IMAGE_2 from "../Assets/Images/slide-image2.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -343,9 +343,9 @@ function HomePage() {
       image: SLIDE_IMAGE_1,
     },
     {
-        _id: 3,
-        image: SLIDE_IMAGE_1,
-      },
+      _id: 3,
+      image: SLIDE_IMAGE_1,
+    },
   ]);
   return (
     <>
@@ -372,7 +372,7 @@ function HomePage() {
         <div className="section-div">
           <p className="section-heading">ONGOING NOVELS</p>
           {/* </div> */}
-          <div className="row">
+          <div className="row row-425">
             {ongoing.map((item, idx) => (
               <OngoingNovelsMapper
                 item={item}
@@ -405,13 +405,16 @@ function HomePage() {
             <div className="col-md-4">
               <p className="section-heading-inner">RECENT ARRIVALS</p>
               <div className="recent-books-container">
-                {recent.map((ele, idx) => (
-                  <Top10Mapper
-                    item={ele}
-                    index={idx}
-                    onClick={() => console.log("Top 10")}
-                  />
-                ))}
+                
+                <div className="row-425 row-426 recent-width">
+                  {recent.map((ele, idx) => (
+                    <Top10Mapper
+                      item={ele}
+                      index={idx}
+                      onClick={() => console.log("Top 10")}
+                    />
+                  ))}
+                </div>
               </div>
             </div>
           </div>
@@ -433,17 +436,20 @@ function HomePage() {
               </div>
               {/* Book details  */}
               <div className="d-flex flex-row">
-                <span className="gradient-blue" />
+                {/* <span className="gradient-blue" /> */}
                 <div
-                  style={{
-                    backgroundImage: `url(${freeBookOfWeek.image})`,
-                  }}
+                //   style={{
+                //     backgroundImage: `url(${freeBookOfWeek.image})`,
+                //   }}
                   className="free-book-image"
                 >
-                  <p className="free-book-status">{freeBookOfWeek.status} </p>
-                  <p className="free-book-heading">{freeBookOfWeek.heading} </p>
+                  <div>
+                    <p className="free-book-status">{freeBookOfWeek.status} </p>
+                    <p className="free-book-heading">{freeBookOfWeek.heading} </p>
+                  </div>
+                  <img src={freeBookOfWeek.image} className="free-book-image" />
                 </div>
-                {/* <img src={freeBookOfWeek.image} className="free-book-image" /> */}
+                
 
                 <div className="free-book-details">
                   <p className="free-book-title">{freeBookOfWeek.title}</p>
