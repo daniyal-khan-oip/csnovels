@@ -1,0 +1,94 @@
+import React from "react";
+import Slider from "react-slick";
+
+function SampleNextArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{
+        right: '25px',
+        zIndex: 999,
+      }}
+      onClick={onClick}
+    />
+  );
+}
+
+function SamplePrevArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{
+        left: '25px',
+        zIndex: 999,
+      }}
+      onClick={onClick}
+    />
+  );
+}
+
+function SliderComp({ images }) {
+  var settings = {
+    dots: false,
+    infinite: false,
+    speed: 500,
+    arrows: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    initialSlide: 0,
+    nextArrow: <SampleNextArrow />,
+    prevArrow: <SamplePrevArrow />,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          infinite: true,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+
+      {
+        breakpoint: 280,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
+
+  return (
+    <Slider {...settings}>
+      {images.map((ele, idx) => (
+        // <div
+        //   style={{
+        //     width: "inherit",
+        //     height: "200px",
+        //     backgroundColor: "red",
+        //   }}
+        // >
+        <img src={ele.image} className="slider-image" />
+        // </div>
+      ))}
+    </Slider>
+  );
+}
+
+export default SliderComp;
