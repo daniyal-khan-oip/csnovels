@@ -17,8 +17,8 @@ function MostWantedNovelsMapper({ item, onClick }) {
           <FontAwesomeIcon icon={faThLarge} /> {item.category}
         </p>
         <p className="mp-book-description">
-          {item.description.length > 70
-            ? item.description.substring(0, 70)
+          {item.description.length > 60
+            ? `${item.description.substring(0, 60)}...`
             : item.description}
         </p>
         <p className="mp-book-chapters">

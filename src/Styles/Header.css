@@ -5,11 +5,11 @@
 
 .cat-label {
   text-transform: uppercase;
-  font-size: 17px;
+  font-size: 16px;
+  font-family: "Montserrat-Medium";
   cursor: pointer;
   margin: 0;
   color: grey;
-  padding-left: 5px;
 }
 
 .cat-and-icon-div {
@@ -57,6 +57,7 @@
 .search-textInput {
   width: 250px;
   height: 25px;
+  font-family: "Montserrat-Medium";
   outline: none;
   border: 0;
 }
@@ -70,6 +71,7 @@
   color: grey;
   text-transform: capitalize;
   margin-left: 20px;
+  font-family: "Montserrat-Medium";
 }
 
 .community-link:hover {
@@ -101,6 +103,7 @@
 .user-acc-label {
   font-size: 23px;
   color: white;
+  font-family: "Montserrat-Medium";
   margin: 0;
 }
 
@@ -125,6 +128,7 @@
   display: flex;
   flex-direction: column;
   margin-left: 10px;
+  justify-content: center;
   align-items: flex-start;
 }
 
@@ -144,7 +148,7 @@
 
   position: absolute;
   top: 60px;
-  right: 223px;
+  right: 252px;
   background-color: #333333;
   border-radius: 10px;
   padding: 12px 0px 0px 15px;
@@ -157,6 +161,7 @@
 .dropdown-options-label {
   text-transform: capitalize;
   font-size: 15px;
+  font-family: "Montserrat-Medium";
   cursor: pointer;
   color: white;
 }
@@ -172,15 +177,17 @@
 .username-dropdown {
   color: white;
   margin: 0;
-  margin-bottom: -9px;
-  font-size: 17px;
+  margin-bottom: -6px;
+  font-family: "Montserrat-Medium";
+  font-size: 15px;
 }
 
 .user-email-dropdown {
   color: white;
   margin: 0;
-  margin-bottom: -4px;
-  font-size: 13px;
+  font-family: "Montserrat-Medium";
+  margin-bottom: -7px;
+  font-size: 12px;
 }
 
 .user-acc-type-dropdown {
@@ -191,7 +198,7 @@
 }
 
 .header-dropdown .star-container {
-  margin-bottom: 4px;
+  margin-bottom: 5px;
   margin-right: 3px;
 }
 
@@ -202,7 +209,36 @@
   justify-content: flex-end;
 }
 
+.header-items {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.small-logo {
+  display: none;
+}
+@media (max-width: 1440px) {
+  .header-dropdown {
+    right: 142px;
+  }
+  
+}
+
+@media (max-width: 1024px) {
+  .header-dropdown {
+    right: 24px;
+  }
+}
+
 @media (max-width: 768px) {
+  .myitem:nth-child(2) {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .user-acc-circle {
+    margin-left: 5px;
+  }
   .cat-label {
     font-size: 12px;
   }
@@ -215,15 +251,30 @@
   .search-textInput {
     width: 180px;
   }
+  .search-textInput::placeholder {
+    font-size: 15px;
+  }
   .community-link {
     font-size: 14px;
   }
   .header-dropdown {
     right: 14px;
   }
+  
 }
 
 @media (max-width: 767px) {
+  .community-link {
+    font-size: 14px;
+    margin-left: 0;
+  }
+  .comunity-and-user-icon {
+    justify-content: flex-start;
+  }
+  .myitem:nth-child(2) {
+    padding-left: 20px;
+    padding-right: 0;
+  }
   .header-logo {
     width: 270px;
   }
@@ -241,8 +292,8 @@
     margin: 8px 0px;
   }
   .header-dropdown {
-    top: 200px;
-    right: 105px;
+    top: 206px;
+    left: 29px;
   }
 
   /* .search-icon {
@@ -275,19 +326,73 @@
 }
 
 @media (max-width: 425px) {
+  .small-logo {
+    display: block;
+  }
+  .top10-book-title {
+    font-size: 12px;
+  }
+  .dropdown-pointer {
+    left: 70px;
+  }
   .search-container {
     width: 300px;
   }
   .search-textInput {
-    width: 250px;
+    width: 190px;
   }
-  .footer-parent{
-    height:100% !important
+  .footer-parent {
+    height: 100% !important;
   }
   .links-container {
-/* align-items: center !important; */
-margin:10px 0px 10px 60px;
-align-self: center;
+    /* align-items: center !important; */
+    margin: 10px 0px 10px 60px;
+    align-self: center;
+  }
 
-}
+  .row.header-items div.myitem:nth-child(1) {
+    flex: 0 0 25%;
+    max-width: 25%;
+    padding-right: 0;
+  }
+
+  .row.header-items div.myitem:nth-child(2) {
+    flex: 0 0 50%;
+    max-width: 50%;
+    padding: 0px 30px !important;
+    text-align: right;
+    display: none;
+  }
+
+  .row.header-items div.myitem:nth-child(3) {
+    flex: 0 0 55%;
+    max-width: 55%;
+    padding: 0;
+  }
+
+  .row.header-items div.myitem:nth-child(4) {
+    flex: 0 0 20%;
+    max-width: 20%;
+    justify-content: center !important;
+    padding: 0;
+  }
+
+  .row.header-items div.myitem:nth-child(1) img {
+    width: 50px;
+  }
+
+  .row.header-items div.myitem:nth-child(3) .search-container {
+    width: 100%;
+    min-height: 35px;
+    display: flex;
+    width: auto;
+  }
+
+  .row.header-items div.myitem:nth-child(1) img.header-logo {
+    display: none;
+  }
+
+  .row.header-items div.myitem:nth-child(4) .community-link {
+    display: none;
+  }
 }

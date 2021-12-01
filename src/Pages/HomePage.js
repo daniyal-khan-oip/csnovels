@@ -33,7 +33,7 @@ import CompletedNovels from "../Components/CompletedNovels";
 function HomePage() {
   const freeBookOfWeek = {
     _id: 1,
-    title: "Book Title Goes Here On Two Lines Even Test Test Test",
+    title: "Book Title Goes Here On Two Lines Even",
     category: "urban",
     heading: "great marshal",
     chapters: 3471,
@@ -46,7 +46,7 @@ function HomePage() {
   const [mostPopular, setMostPopular] = useState([
     {
       _id: 1,
-      title: "Book Title Goes Here On Two Lines Even Test Test Test",
+      title: "Book Title Goes Here On Two Lines Even",
       category: "urban",
       heading: "great marshal",
       chapters: 3471,
@@ -57,7 +57,51 @@ function HomePage() {
     },
     {
       _id: 2,
-      title: "Book Title Goes Here On Two Lines Even Test Test Test",
+      title: "Book Title Goes Here On Two Lines Even",
+      category: "urban",
+      heading: "great marshal",
+      status: "completed",
+      chapters: 3471,
+      image: BOOK_CARD,
+      description:
+        "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.",
+    },
+    {
+      _id: 12,
+      title: "Book Title Goes Here On Two Lines Even",
+      category: "urban",
+      heading: "great marshal",
+      chapters: 3471,
+      status: "completed",
+      image: BOOK_CARD,
+      description:
+        "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.",
+    },
+    {
+      _id: 22,
+      title: "Book Title Goes Here On Two Lines Even",
+      category: "urban",
+      heading: "great marshal",
+      status: "completed",
+      chapters: 3471,
+      image: BOOK_CARD,
+      description:
+        "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.",
+    },
+    {
+      _id: 11,
+      title: "Book Title Goes Here On Two Lines Even",
+      category: "urban",
+      heading: "great marshal",
+      chapters: 3471,
+      status: "completed",
+      image: BOOK_CARD,
+      description:
+        "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.",
+    },
+    {
+      _id: 12,
+      title: "Book Title Goes Here On Two Lines Even",
       category: "urban",
       heading: "great marshal",
       status: "completed",
@@ -73,7 +117,7 @@ function HomePage() {
       _id: 1,
       status: "completed",
       heading: "great marshal",
-      title: "Book Title Goes Here On Two Lines Even Test Test Test",
+      title: "Book Title Goes Here On Two Lines Even",
       category: "urban",
       chapters: 3471,
       image: BOOK_CARD,
@@ -84,7 +128,7 @@ function HomePage() {
       _id: 2,
       heading: "great marshal",
       status: "completed",
-      title: "Book Title Goes Here On Two Lines Even Test Test Test",
+      title: "Book Title Goes Here On Two Lines Even",
       category: "urban",
       chapters: 3471,
       image: BOOK_CARD,
@@ -95,7 +139,7 @@ function HomePage() {
       _id: 3,
       heading: "great marshal",
       status: "completed",
-      title: "Book Title Goes Here On Two Lines Even Test Test Test",
+      title: "Book Title Goes Here On Two Lines Even",
       category: "urban",
       chapters: 3471,
       image: BOOK_CARD,
@@ -106,7 +150,7 @@ function HomePage() {
       _id: 4,
       heading: "great marshal",
       status: "completed",
-      title: "Book Title Goes Here On Two Lines Even Test Test Test",
+      title: "Book Title Goes Here On Two Lines Even",
       category: "urban",
       chapters: 3471,
       image: BOOK_CARD,
@@ -117,7 +161,7 @@ function HomePage() {
       _id: 5,
       heading: "great marshal",
       status: "completed",
-      title: "Book Title Goes Here On Two Lines Even Test Test Test",
+      title: "Book Title Goes Here On Two Lines Even",
       category: "urban",
       chapters: 3471,
       image: BOOK_CARD,
@@ -128,7 +172,7 @@ function HomePage() {
       _id: 6,
       heading: "great marshal",
       status: "completed",
-      title: "Book Title Goes Here On Two Lines Even Test Test Test",
+      title: "Book Title Goes Here On Two Lines Even",
       category: "urban",
       chapters: 3471,
       image: BOOK_CARD,
@@ -358,7 +402,7 @@ function HomePage() {
         <div className="section-div">
           <p className="section-heading">MOST POPULAR</p>
           {/* </div> */}
-          <div className="row">
+          <div className="row center-most-popular-in-mobile">
             {mostPopular.map((item, idx) => (
               <MostWantedNovelsMapper
                 item={item}
@@ -405,7 +449,6 @@ function HomePage() {
             <div className="col-md-4">
               <p className="section-heading-inner">RECENT ARRIVALS</p>
               <div className="recent-books-container">
-                
                 <div className="row-425 row-426 recent-width">
                   {recent.map((ele, idx) => (
                     <Top10Mapper
@@ -438,18 +481,19 @@ function HomePage() {
               <div className="d-flex flex-row">
                 {/* <span className="gradient-blue" /> */}
                 <div
-                //   style={{
-                //     backgroundImage: `url(${freeBookOfWeek.image})`,
-                //   }}
+                  //   style={{
+                  //     backgroundImage: `url(${freeBookOfWeek.image})`,
+                  //   }}
                   className="free-book-image"
                 >
                   <div>
                     <p className="free-book-status">{freeBookOfWeek.status} </p>
-                    <p className="free-book-heading">{freeBookOfWeek.heading} </p>
+                    <p className="free-book-heading">
+                      {freeBookOfWeek.heading}{" "}
+                    </p>
                   </div>
                   <img src={freeBookOfWeek.image} className="free-book-image" />
                 </div>
-                
 
                 <div className="free-book-details">
                   <p className="free-book-title">{freeBookOfWeek.title}</p>
@@ -458,14 +502,19 @@ function HomePage() {
                     {freeBookOfWeek.category}
                   </p>
                   <p className="free-book-description">
-                    {freeBookOfWeek.description.length > 70
-                      ? freeBookOfWeek.description.substring(0, 70)
+                    {freeBookOfWeek.description.length > 150
+                      ? `${freeBookOfWeek.description.substring(0, 150)}...`
                       : freeBookOfWeek.description}
                   </p>
-                  <p className="free-book-chapters">
-                    <FontAwesomeIcon icon={faBook} />{" "}
-                    {`${freeBookOfWeek.chapters} Chapters`}
-                  </p>
+                  <div className="d-flex  justify-content-between">
+                    <p className="free-book-chapters">
+                      <FontAwesomeIcon icon={faBook} />{" "}
+                      {`${freeBookOfWeek.chapters} Chapters`}
+                    </p>
+                    <div className="read-div mt-1">
+                      <p className="text-center read-p">READ</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -530,13 +579,13 @@ function HomePage() {
           <table class="table recent-update-table">
             <thead class="table-header">
               <tr>
-                <th scope="col" className="pl-4 border-0">
+                <th scope="col" className="pl-4 border-0 table-header-labels">
                   Book
                 </th>
-                <th scope="col" className="border-0">
+                <th scope="col" className="border-0 table-header-labels">
                   Chapter
                 </th>
-                <th scope="col" className="border-0">
+                <th scope="col" className="border-0 table-header-labels">
                   Time
                 </th>
                 <th scope="col" className="border-0"></th>

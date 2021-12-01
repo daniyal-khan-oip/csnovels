@@ -14,6 +14,7 @@ body #root {
   font-size: 22px;
   color: rgb(77, 74, 74);
   font-weight: 500;
+  font-family: "Montserrat-SemiBold";
   margin: 20px 0px;
 }
 
@@ -21,6 +22,7 @@ body #root {
   border-bottom: 4px solid #ffc240;
   width: 90%;
   padding-left: 10px;
+  font-family: "Montserrat-SemiBold";
   margin: 0;
   font-size: 22px;
   color: rgb(77, 74, 74);
@@ -35,18 +37,33 @@ body #root {
 }
 .mp-image-and-text-container {
   position: relative;
+  /* for animation:  */
+  overflow: hidden;
+  transition: transform 0.5s ease;
+  width: 52%;
+  border-radius: 7px;
+}
+
+.mp-image-and-text-container:hover {
+  -moz-transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
 }
 .most-wanted-books .mp-book-status {
   position: absolute;
-  top: 0px;
-  right: 6px;
-  font-size: 7px;
+  top: 2px;
+  right: 10px;
+  font-family: "Montserrat-Medium";
+  font-size: 6px;
   text-transform: uppercase;
   margin: 0;
+  /* transition: transform 0.5s ease; */
 }
 .most-wanted-books .mp-book-heading {
   position: absolute;
   line-height: 23px;
+  font-family: "Montserrat-ExtraBold";
   top: 40px;
   width: 100px;
   right: -11px;
@@ -54,17 +71,30 @@ body #root {
   font-weight: 800;
   font-size: 20px;
   text-transform: capitalize;
+  /* transition: transform 0.5s ease; */
 }
 .mp-book-image {
   width: 100px;
   object-fit: contain;
+  /* transition: transform 0.5s ease; */
+  overflow: hidden;
 }
 
+/* .mp-book-image:hover {
+  transform: scale(1.2);
+}
+.most-wanted-books .mp-book-heading:hover{
+  transform: scale(1.2);
+}
+.most-wanted-books .mp-book-status:hover{
+  transform: scale(1.2);
+} */
 .book-details {
   padding-left: 10px;
 }
 
 .mp-book-title {
+  font-family: "Montserrat-Bold";
   margin: 0;
   font-size: 15px;
   font-weight: 00;
@@ -74,6 +104,7 @@ body #root {
 }
 
 .mp-book-category {
+  font-family: "Montserrat-Regular";
   margin: 0;
   color: rgb(148, 143, 143);
   font-size: 13px;
@@ -83,8 +114,9 @@ body #root {
 .mp-book-description {
   margin: 0;
   color: rgb(77, 74, 74);
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 500;
+  font-family: "Montserrat-SemiBold";
 }
 
 .mp-book-chapters {
@@ -92,20 +124,31 @@ body #root {
   color: rgb(77, 74, 74);
   font-size: 13px;
   font-weight: 500;
+  font-family: "Montserrat-SemiBold";
 }
 
 .og-image-and-text-container {
   position: relative;
 }
 
+.og-books:hover {
+  -moz-transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
+  /* box-shadow: 0 0 11px rgb(33 33 33 / 20%);
+    border-radius: 7px; */
+}
 .og-book-chapters {
   margin: 0;
   color: rgb(77, 74, 74);
   font-size: 13px;
   font-weight: 500;
+  font-family: "Montserrat-SemiBold";
 }
 .og-books {
   display: flex;
+  transition: transform 0.5s ease;
   cursor: pointer;
   flex-direction: column;
 }
@@ -116,17 +159,19 @@ body #root {
 
 .og-books .og-book-status {
   position: absolute;
-  top: 0px;
+  top: 2px;
   right: 28px;
-  font-size: 10px;
+  font-family: "Montserrat-Medium";
+  font-size: 9px;
   text-transform: uppercase;
   margin: 0;
 }
 .og-books .og-book-heading {
+  font-family: "Montserrat-ExtraBold";
   position: absolute;
   top: 75px;
   width: 100px;
-  right: 44px;
+  right: 48px;
   color: white;
   line-height: 23px;
   font-weight: 800;
@@ -136,8 +181,9 @@ body #root {
 
 .og-book-title {
   margin: 0;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 00;
+  font-family: "Montserrat-Bold";
   font-weight: 700;
   text-transform: capitalize;
   color: rgb(77, 74, 74);
@@ -170,8 +216,15 @@ body #root {
   margin: 10px 0px;
   /* flex-direction: row; */
 }
+.top10-image:hover {
+  -moz-transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
+}
 .top10-image {
   width: 70px;
+  transition: transform 0.5s ease;
   border-radius: 5px;
   object-fit: contain;
 }
@@ -179,10 +232,12 @@ body #root {
 .top10BookColor_1 {
   color: #e70040;
   font-weight: 500;
+  font-family: "Montserrat-SemiBold";
   margin: 0px 5px;
 }
 .top10BookColor_2 {
   color: #ffc240;
+  font-family: "Montserrat-SemiBold";
   font-weight: 500;
   margin: 0px 5px;
 }
@@ -190,39 +245,47 @@ body #root {
   color: #60d6ae;
   font-weight: 500;
   margin: 0px 5px;
+  font-family: "Montserrat-SemiBold";
 }
 .top10BookColor_4 {
   color: #646468;
   margin: 0px 5px;
   font-weight: 500;
+  font-family: "Montserrat-SemiBold";
 }
 .top10BookColor_5 {
   color: #646468;
   margin: 0px 5px;
+  font-family: "Montserrat-SemiBold";
   font-weight: 500;
 }
 .top10BookColor_6 {
   color: #e70040;
   margin: 0px 5px;
+  font-family: "Montserrat-SemiBold";
   font-weight: 500;
 }
 .top10BookColor_7 {
   color: #ffc240;
   margin: 0px 5px;
+  font-family: "Montserrat-SemiBold";
   font-weight: 500;
 }
 .top10BookColor_8 {
   color: #60d6ae;
   margin: 0px 5px;
+  font-family: "Montserrat-SemiBold";
   font-weight: 500;
 }
 .top10BookColor_9 {
   color: #646468;
   margin: 0px 5px;
+  font-family: "Montserrat-SemiBold";
   font-weight: 500;
 }
 .top10BookColor_10 {
   color: #646468;
+  font-family: "Montserrat-SemiBold";
   font-weight: 500;
   margin: 0px 5px;
 }
@@ -230,6 +293,7 @@ body #root {
 .top10-book-title {
   font-weight: 500;
   margin: 0;
+  font-family: "Montserrat-SemiBold";
   text-transform: capitalize;
   font-size: 16px;
 }
@@ -238,13 +302,15 @@ body #root {
   margin: 0;
   color: #646468;
   font-size: 12px;
+  font-family: "Montserrat-Medium";
   text-transform: capitalize;
 }
 .top10-book-rating {
   margin: 0;
-  margin-top: 6px;
+  margin-top: 7px;
   margin-left: 3px;
   font-weight: 500;
+  font-family: "Montserrat-SemiBold";
   color: #646468;
   font-size: 12px;
 }
@@ -252,11 +318,13 @@ body #root {
 .free-book-label {
   font-size: 35px;
   font-weight: 700;
+  font-family: "Montserrat-SemiBold";
   text-align: center;
 }
 .recent-updates-label {
   font-size: 35px;
   font-weight: 700;
+  font-family: "Montserrat-SemiBold";
   text-align: center;
 }
 
@@ -281,19 +349,23 @@ body #root {
   /* position: relative; */
   /* bottom: 125px; */
   margin-left: 100px;
+  transition: transform 0.5s ease;
   /* right: 80px; */
-  font-size: 13px;
+  font-family: "Montserrat-Medium";
+  font-size: 12px;
   text-transform: uppercase;
   /* margin: 0; */
 }
 .free-book-heading {
   /* position: absolute; */
   line-height: 33px;
+  transition: transform 0.5s ease;
   /* left: 460px; */
   /* bottom:1000px; */
+  font-family: "Montserrat-ExtraBold";
   width: 150px;
   color: white;
-  margin-left: 30px;
+  margin-left: 20px;
   margin-top: 70px;
   font-weight: 800;
   font-size: 35px;
@@ -307,12 +379,19 @@ body #root {
 .free-book-image {
   width: 187px;
   height: 248px;
+  /* cursor: no; */
+  transition: transform 0.5s ease;
   /* object-fit: contain; */
   background-size: cover;
 }
+/* .free-book-image:hover > * {
+  -moz-transform: scale(1.1);
+  transform: scale(1.1);
+} */
 .free-book-title {
   margin: 0;
   font-size: 27px;
+  font-family: "Montserrat-Bold";
   font-weight: 700;
   text-transform: capitalize;
   color: rgb(77, 74, 74);
@@ -322,21 +401,24 @@ body #root {
   margin: 0;
   color: rgb(148, 143, 143);
   font-size: 20px;
+  font-family: "Montserrat-Medium";
   text-transform: capitalize;
 }
 
 .free-book-description {
   margin: 0;
   color: rgb(77, 74, 74);
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 500;
+  font-family: "Montserrat-SemiBold";
 }
 
 .free-book-chapters {
   margin: 0;
   color: rgb(77, 74, 74);
-  font-size: 20px;
+  font-size: 19px;
   font-weight: 500;
+  font-family: "Montserrat-SemiBold";
 }
 
 /* Categories  */
@@ -346,6 +428,7 @@ body #root {
 
 .book-category-label {
   color: white;
+  font-family: "Montserrat-ExtraBold";
   font-size: 55px;
   font-weight: 800;
   text-transform: capitalize;
@@ -360,6 +443,13 @@ body #root {
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: transform 0.5s ease;
+}
+.book-category-image:hover {
+  -moz-transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
 }
 /* table {
     border-collapse: collapse;
@@ -389,16 +479,18 @@ table.recent-update-table {
   font-weight: 500;
   cursor: pointer;
   font-size: 15px;
+  font-family: "Montserrat-Bold";
   width: 80px;
   border-radius: 15px !important;
 }
 .table-labels {
   text-transform: capitalize;
   font-size: 16px;
+  font-family: "Montserrat-Medium";
   margin: 0;
 }
 .timer-div {
-  width: 190px;
+  width: 205px;
   margin-bottom: 20px;
   background-color: rgba(0, 0, 0, 0.04);
   padding: 10px 10px;
@@ -413,10 +505,12 @@ table.recent-update-table {
   border-radius: 5px;
   padding: 0px 5px;
   color: white;
+  font-family: "Montserrat-Medium";
 }
 .day-label {
   margin: 0 5px;
   font-size: 20px;
+  font-family: "Montserrat-SemiBold";
   font-weight: 500;
 }
 
@@ -449,7 +543,7 @@ table.recent-update-table {
 .grounded-radiants {
   position: relative;
   border: 4px solid transparent;
-  border-radius: 16px;
+  border-radius: 20px;
   background: white;
   background-clip: padding-box;
   padding: 10px;
@@ -494,12 +588,22 @@ table.recent-update-table {
   margin: 0;
   color: rgb(77, 74, 74);
   font-size: 13px;
+  font-family: "Montserrat-SemiBold";
   font-weight: 500;
 }
 .completed-books {
   display: flex;
   cursor: pointer;
+  transition: transform 0.5s ease;
   flex-direction: column;
+}
+.completed-books:hover {
+  -moz-transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
+  /* box-shadow: 0 0 11px rgb(33 33 33 / 20%);
+    border-radius: 7px; */
 }
 .completed-book-image {
   width: 140px;
@@ -508,9 +612,10 @@ table.recent-update-table {
 
 .completed-books .completed-book-status {
   position: absolute;
-  top: 0px;
+  top: 2px;
   right: 28px;
-  font-size: 10px;
+  font-family: "Montserrat-Medium";
+  font-size: 9px;
   text-transform: uppercase;
   margin: 0;
 }
@@ -519,6 +624,7 @@ table.recent-update-table {
   top: 75px;
   width: 100px;
   right: 44px;
+  font-family: "Montserrat-ExtraBold";
   color: white;
   line-height: 23px;
   font-weight: 800;
@@ -528,6 +634,7 @@ table.recent-update-table {
 
 .completed-book-title {
   margin: 0;
+  font-family: "Montserrat-Bold";
   font-size: 15px;
   font-weight: 00;
   font-weight: 700;
@@ -542,7 +649,18 @@ table.recent-update-table {
   z-index: 9;
 }
 
+.table-header-labels {
+  font-family: "Montserrat-SemiBold";
+}
+@media (min-width: 1024px) {
+  .most-wanted-books {
+    margin-bottom: 10px !important;
+  }
+}
 @media (max-width: 1024px) {
+  .mp-image-and-text-container {
+    width: 100%;
+  }
   .book-category-image {
     width: 300px;
   }
@@ -575,6 +693,15 @@ table.recent-update-table {
 }
 
 @media (max-width: 768px) {
+  .most-wanted-books {
+    margin-bottom: 10px;
+  }
+  .free-book-label {
+    margin-top: -120px;
+  }
+  .mp-image-and-text-container {
+    width: 147%;
+  }
   .mp-book-image {
     width: 95px;
   }
@@ -600,7 +727,7 @@ table.recent-update-table {
   }
   .og-books .og-book-status {
     right: -15px;
-    font-size: 9px;
+    font-size: 7px;
   }
   .og-books .og-book-heading {
     right: -16px;
@@ -611,10 +738,10 @@ table.recent-update-table {
     font-size: 11px;
   }
   .og-book-chapters {
-    font-size: 11px;
+    font-size: 10px;
   }
   .section-heading-inner {
-    font-size: 20px;
+    font-size: 18px;
   }
   .top10Books {
     width: 213px;
@@ -623,7 +750,7 @@ table.recent-update-table {
     width: 60px;
   }
   .top10-book-title {
-    font-size: 13px;
+    font-size: 12px;
   }
 
   .top10BookColor_1 {
@@ -687,8 +814,9 @@ table.recent-update-table {
     font-size: 39px;
   }
   .read-p {
-    font-size: 13px;
-    width: 60px;
+    font-size: 14px;
+    margin: 0;
+    width: 80px;
   }
   .table-labels {
     font-size: 14px;
@@ -702,7 +830,7 @@ table.recent-update-table {
   }
   .completed-books .completed-book-status {
     right: -15px;
-    font-size: 9px;
+    font-size: 7px;
   }
   .completed-books .completed-book-heading {
     right: -16px;
@@ -713,11 +841,17 @@ table.recent-update-table {
     font-size: 11px;
   }
   .completed-book-chapters {
-    font-size: 11px;
+    font-size: 10px;
+  }
+  .user-acc-circle {
+    margin-left: 5px;
   }
 }
 
 @media (max-width: 767px) {
+  .mp-image-and-text-container {
+    width: 98%;
+  }
   .books-container {
     overflow-x: scroll;
   }
@@ -779,7 +913,7 @@ table.recent-update-table {
     overflow-x: auto;
   }
   .free-book-label {
-    margin-top: -95px;
+    margin-top: -45px;
   }
 
   .completed-books .completed-book-status {
@@ -810,6 +944,13 @@ table.recent-update-table {
   }
 }
 
+@media (max-width: 425px) and (min-width: 425px) {
+  .center-most-popular-in-mobile {
+    display: flex;
+    justify-content: center;
+    margin: 0px 0px;
+  }
+}
 @media (max-width: 425px) {
   .row-425.row-426 {
     display: flex;
@@ -819,7 +960,7 @@ table.recent-update-table {
     display: block;
   }
   .free-book-category {
-    font-size: 14px;
+    font-size: 13px;
   }
   .most-wanted-books {
     margin-bottom: 20px;
@@ -840,30 +981,37 @@ table.recent-update-table {
     width: 106px;
   }
   .free-book-label {
-    font-size: 26px;
+    font-size: 23px;
   }
   .free-book-rectangle {
     /* width: 292px; */
     width: auto;
   }
   .free-book-image {
-    width: 126px;
-    height: 176px;
+    width: 86px;
+    height: 113px;
   }
   .free-book-status {
-    margin-left: 63px;
-    font-size: 10px;
+    margin-left: 44px;
+    font-size: 6px;
+    margin-top: 2px;
+  }
+  .free-book-details {
+    padding-left: 10px;
   }
   .free-book-heading {
-    margin-left: 13px;
-    margin-top: 36px;
-    font-size: 26px;
+    margin-left: 6px;
+    margin-top: 25px;
+    line-height: 19px;
+    font-size: 18px;
+
+    width: min-content;
   }
   .free-book-title {
     font-size: 12px;
   }
   .free-book-description {
-    font-size: 12px;
+    font-size: 7px;
   }
   .free-book-chapters {
     font-size: 12px;
@@ -872,7 +1020,7 @@ table.recent-update-table {
     display: none;
   }
   .section-heading {
-    font-size: 28px;
+    font-size: 20px;
   }
   .completed-books {
     width: 100px;
@@ -895,15 +1043,16 @@ table.recent-update-table {
   .completed-books .completed-book-heading {
     left: 5px;
     right: 0;
-    font-size: 16px;
-    top: 30px;
+    font-size: 15px;
+    line-height: 16px;
+    top: 36px;
     text-transform: capitalize;
   }
   .completed-book-chapters {
     display: none;
   }
   .completed-book-title {
-    font-size: 14px;
+    font-size: 10px;
   }
   .completed-books-container {
     display: flex;
@@ -936,7 +1085,13 @@ table.recent-update-table {
     font-size: 13px;
     top: 28px;
   }
-
+  .table-labels {
+    font-size: 8px;
+    padding-left: 0px !important;
+  }
+  .table td {
+    padding-right: 0;
+  }
   .og-books .og-book-status {
     left: 30px;
     right: 0;
@@ -989,19 +1144,19 @@ table.recent-update-table {
     display: none;
   }
   .recent-books-container .top10-book-title {
-    font-size: 12px;
+    font-size: 10px;
   }
   .recent-books-container .top10-book-genre {
     display: none;
   }
 
   .most-wanted-books {
-    width: 83px;
+    width: 80px;
     margin-right: 0px;
     margin-bottom: 16px;
     padding: 0 4px;
     display: block;
-}
+  }
   .mp-book-image {
     width: 72px;
   }
@@ -1010,8 +1165,8 @@ table.recent-update-table {
   }
   .most-wanted-books .mp-book-heading {
     font-size: 15px;
-    top: 32px;
-    right: -30px;
+    top: 28px;
+    right: -35px;
   }
   .mp-book-category {
     display: none;
@@ -1024,18 +1179,20 @@ table.recent-update-table {
   }
   .mp-book-title {
     font-size: 10px;
-    padding-left:0
-}
-.book-details {
-  padding-left: 0px;
-}
-.most-wanted-books .mp-book-status {
-  position: absolute;
-  top: 0px;
-  right: 7px;
-
-  font-size: 6px;
-  text-transform: uppercase;
-  margin: 0;
-}
+    padding-left: 0;
+  }
+  .book-details {
+    padding-left: 0px;
+  }
+  .most-wanted-books .mp-book-status {
+    top: 1px;
+    right: 4px;
+    font-size: 4px;
+  }
+  .comunity-and-user-icon {
+    justify-content: flex-start !important;
+  }
+  .community-link {
+    margin-left: 0px !important;
+  }
 }

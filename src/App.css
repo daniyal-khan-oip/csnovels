@@ -1,3 +1,44 @@
+@font-face {
+  font-family: "Montserrat-Black";
+  src: local("Montserrat-Black"),
+    url("./Assets/Fonts/Montserrat/Montserrat-Black.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Montserrat-Bold";
+  src: local("Montserrat-Bold"),
+    url("./Assets/Fonts/Montserrat/Montserrat-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Montserrat-ExtraBold";
+  src: local("Montserrat-ExtraBold"),
+    url("./Assets/Fonts/Montserrat/Montserrat-ExtraBold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Montserrat-Light";
+  src: local("Montserrat-Light"),
+    url("./Assets/Fonts/Montserrat/Montserrat-Light.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Montserrat-Regular";
+  src: local("Montserrat-Black"),
+    url("./Assets/Fonts/Montserrat/Montserrat-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Montserrat-SemiBold";
+  src: local("Montserrat-SemiBold"),
+    url("./Assets/Fonts/Montserrat/Montserrat-SemiBold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Montserrat-Medium";
+  src: local("Montserrat-SemiBold"),
+    url("./Assets/Fonts/Montserrat/Montserrat-Medium.ttf") format("truetype");
+}
 /* .App {
   text-align: center;
 }
