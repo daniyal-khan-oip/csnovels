@@ -1,13 +1,18 @@
 import React from "react";
 import Header from "../Components/Header";
 import { useState } from "react";
-import { faThLarge, faBook } from "@fortawesome/free-solid-svg-icons";
+import {
+  faThLarge,
+  faBook,
+  faAngleRight,
+} from "@fortawesome/free-solid-svg-icons";
 import Footer from "../Components/Footer";
 import BOOK_CARD from "../Assets/Images/book-card.png";
 import MostWantedNovelsMapper from "../Components/MostWantedNovelsMapper";
 import OngoingNovelsMapper from "../Components/OngoingNovelsMapper";
 import Top10Mapper from "../Components/Top10Mapper";
 import SliderComp from "../Components/SliderComp";
+import THREE_LINES from "../Assets/Images/three-lines.png";
 import BOOK1 from "../Assets/Images/top10/1.png";
 import BOOK2 from "../Assets/Images/top10/2.png";
 import BOOK3 from "../Assets/Images/top10/3.png";
@@ -33,82 +38,89 @@ import CompletedNovels from "../Components/CompletedNovels";
 function HomePage() {
   const freeBookOfWeek = {
     _id: 1,
-    title: "Book Title Goes Here On Two Lines Even",
+    title:
+      "Book Title Goes Here On Even Two Lines Test Test Test Test Test Test Test Two Lines Even Test Test Test Test Test Test Test",
     category: "urban",
     heading: "great marshal",
     chapters: 3471,
     status: "completed",
     image: BOOK_CARD,
     description:
-      "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.",
+      "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available  Lorem ipsum may be used as a placeholder before final copy is available..",
   };
 
   const [mostPopular, setMostPopular] = useState([
     {
       _id: 1,
-      title: "Book Title Goes Here On Two Lines Even",
+      title:
+        "Book Title Goes Here On Two Lines Even Test Test Test Test Test Test Test",
       category: "urban",
       heading: "great marshal",
       chapters: 3471,
       status: "completed",
       image: BOOK_CARD,
       description:
-        "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.",
+        "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available  Lorem ipsum may be used as a placeholder before final copy is available..",
     },
     {
       _id: 2,
-      title: "Book Title Goes Here On Two Lines Even",
+      title:
+        "Book Title Goes Here On Two Lines Even Test Test Test Test Test Test Test",
       category: "urban",
       heading: "great marshal",
       status: "completed",
       chapters: 3471,
       image: BOOK_CARD,
       description:
-        "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.",
+        "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available  Lorem ipsum may be used as a placeholder before final copy is available..",
     },
     {
       _id: 12,
-      title: "Book Title Goes Here On Two Lines Even",
+      title:
+        "Book Title Goes Here On Two Lines Even Test Test Test Test Test Test Test",
       category: "urban",
       heading: "great marshal",
       chapters: 3471,
       status: "completed",
       image: BOOK_CARD,
       description:
-        "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.",
+        "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available  Lorem ipsum may be used as a placeholder before final copy is available..",
     },
     {
       _id: 22,
-      title: "Book Title Goes Here On Two Lines Even",
+      title:
+        "Book Title Goes Here On Two Lines Even Test Test Test Test Test Test Test",
       category: "urban",
       heading: "great marshal",
       status: "completed",
       chapters: 3471,
       image: BOOK_CARD,
       description:
-        "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.",
+        "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available  Lorem ipsum may be used as a placeholder before final copy is available..",
     },
     {
       _id: 11,
-      title: "Book Title Goes Here On Two Lines Even",
+      title:
+        "Book Title Goes Here On Two Lines Even Test Test Test Test Test Test Test",
       category: "urban",
       heading: "great marshal",
       chapters: 3471,
       status: "completed",
       image: BOOK_CARD,
       description:
-        "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.",
+        "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available  Lorem ipsum may be used as a placeholder before final copy is available..",
     },
     {
       _id: 12,
-      title: "Book Title Goes Here On Two Lines Even",
+      title:
+        "Book Title Goes Here On Two Lines Even Test Test Test Test Test Test Test",
       category: "urban",
       heading: "great marshal",
       status: "completed",
       chapters: 3471,
       image: BOOK_CARD,
       description:
-        "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.",
+        "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available  Lorem ipsum may be used as a placeholder before final copy is available..",
     },
   ]);
 
@@ -117,67 +129,73 @@ function HomePage() {
       _id: 1,
       status: "completed",
       heading: "great marshal",
-      title: "Book Title Goes Here On Two Lines Even",
+      title:
+        "Book Title Goes Here On Two Lines Even Test Test Test Test Test Test Test",
       category: "urban",
       chapters: 3471,
       image: BOOK_CARD,
       description:
-        "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.",
+        "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available  Lorem ipsum may be used as a placeholder before final copy is available..",
     },
     {
       _id: 2,
       heading: "great marshal",
       status: "completed",
-      title: "Book Title Goes Here On Two Lines Even",
+      title:
+        "Book Title Goes Here On Two Lines Even Test Test Test Test Test Test Test",
       category: "urban",
       chapters: 3471,
       image: BOOK_CARD,
       description:
-        "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.",
+        "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available  Lorem ipsum may be used as a placeholder before final copy is available..",
     },
     {
       _id: 3,
       heading: "great marshal",
       status: "completed",
-      title: "Book Title Goes Here On Two Lines Even",
+      title:
+        "Book Title Goes Here On Two Lines Even Test Test Test Test Test Test Test",
       category: "urban",
       chapters: 3471,
       image: BOOK_CARD,
       description:
-        "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.",
+        "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available  Lorem ipsum may be used as a placeholder before final copy is available..",
     },
     {
       _id: 4,
       heading: "great marshal",
       status: "completed",
-      title: "Book Title Goes Here On Two Lines Even",
+      title:
+        "Book Title Goes Here On Two Lines Even Test Test Test Test Test Test Test",
       category: "urban",
       chapters: 3471,
       image: BOOK_CARD,
       description:
-        "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.",
+        "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available  Lorem ipsum may be used as a placeholder before final copy is available..",
     },
     {
       _id: 5,
       heading: "great marshal",
       status: "completed",
-      title: "Book Title Goes Here On Two Lines Even",
+      title:
+        "Book Title Goes Here On Two Lines Even Test Test Test Test Test Test Test",
       category: "urban",
       chapters: 3471,
       image: BOOK_CARD,
       description:
-        "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.",
+        "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available  Lorem ipsum may be used as a placeholder before final copy is available..",
     },
     {
       _id: 6,
       heading: "great marshal",
       status: "completed",
-      title: "Book Title Goes Here On Two Lines Even",
+      title:
+        "Book Title Goes Here On Two Lines Even Test Test Test Test Test Test Test",
       category: "urban",
       chapters: 3471,
       image: BOOK_CARD,
       description:
-        "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.",
+        "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available  Lorem ipsum may be used as a placeholder before final copy is available..",
     },
   ]);
 
@@ -186,67 +204,73 @@ function HomePage() {
       _id: 1,
       status: "completed",
       heading: "great marshal",
-      title: "Book Title Goes Here On",
+      title:
+        "Book Title Goes Here On Even Two Lines Test Test Test Test Test Test Test",
       category: "urban",
       chapters: 3471,
       image: BOOK_CARD,
       description:
-        "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.",
+        "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available  Lorem ipsum may be used as a placeholder before final copy is available..",
     },
     {
       _id: 2,
       heading: "great marshal",
       status: "completed",
-      title: "Book Title Goes Here On",
+      title:
+        "Book Title Goes Here On Even Two Lines Test Test Test Test Test Test Test",
       category: "urban",
       chapters: 3471,
       image: BOOK_CARD,
       description:
-        "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.",
+        "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available  Lorem ipsum may be used as a placeholder before final copy is available..",
     },
     {
       _id: 3,
       heading: "great marshal",
       status: "completed",
-      title: "Book Title Goes Here On",
+      title:
+        "Book Title Goes Here On Even Two Lines Test Test Test Test Test Test Test",
       category: "urban",
       chapters: 3471,
       image: BOOK_CARD,
       description:
-        "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.",
+        "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available  Lorem ipsum may be used as a placeholder before final copy is available..",
     },
     {
       _id: 4,
       heading: "great marshal",
       status: "completed",
-      title: "Book Title Goes Here On",
+      title:
+        "Book Title Goes Here On Even Two Lines Test Test Test Test Test Test Test",
       category: "urban",
       chapters: 3471,
       image: BOOK_CARD,
       description:
-        "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.",
+        "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available  Lorem ipsum may be used as a placeholder before final copy is available..",
     },
     {
       _id: 5,
       heading: "great marshal",
       status: "completed",
-      title: "Book Title Goes Here On Two",
+      title:
+        "Book Title Goes Here On Even Two Lines Test Test Test Test Test Test Test Two",
       category: "urban",
       chapters: 3471,
       image: BOOK_CARD,
       description:
-        "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.",
+        "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available  Lorem ipsum may be used as a placeholder before final copy is available..",
     },
     {
       _id: 6,
       heading: "great marshal",
       status: "completed",
-      title: "Book Title Goes Here On Two",
+      title:
+        "Book Title Goes Here On Even Two Lines Test Test Test Test Test Test Test Two",
       category: "urban",
       chapters: 3471,
       image: BOOK_CARD,
       description:
-        "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.",
+        "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available  Lorem ipsum may be used as a placeholder before final copy is available..",
     },
   ]);
 
@@ -329,7 +353,7 @@ function HomePage() {
       name: "birth of the demonic sword",
       genre: "fantasy",
       rating: 4.6,
-      image: BOOK10,
+      image: BOOK8,
     },
     {
       _id: 2,
@@ -400,9 +424,14 @@ function HomePage() {
       <div className="container">
         {/* Most Popular  */}
         <div className="section-div">
-          <p className="section-heading">MOST POPULAR</p>
+          <div className="section-heading-div">
+            <p className="section-heading">MOST POPULAR</p>
+            <p className="view-all">
+              VIEW ALL <FontAwesomeIcon icon={faAngleRight} />
+            </p>
+          </div>
           {/* </div> */}
-          <div className="row center-most-popular-in-mobile">
+          <div className="row center-most-popular-in-mobile spacing-adjust">
             {mostPopular.map((item, idx) => (
               <MostWantedNovelsMapper
                 item={item}
@@ -414,9 +443,15 @@ function HomePage() {
 
         {/* Ongoing Novels  */}
         <div className="section-div">
-          <p className="section-heading">ONGOING NOVELS</p>
+          <div className="section-heading-div">
+            <p className="section-heading">ONGOING NOVELS</p>
+            <p className="view-all">
+              VIEW ALL <FontAwesomeIcon icon={faAngleRight} />
+            </p>
+          </div>
+
           {/* </div> */}
-          <div className="row row-425">
+          <div className="row row-425 spacing-adjust">
             {ongoing.map((item, idx) => (
               <OngoingNovelsMapper
                 item={item}
@@ -448,16 +483,15 @@ function HomePage() {
 
             <div className="col-md-4">
               <p className="section-heading-inner">RECENT ARRIVALS</p>
-              <div className="recent-books-container">
-                <div className="row-425 row-426 recent-width">
-                  {recent.map((ele, idx) => (
-                    <Top10Mapper
-                      item={ele}
-                      index={idx}
-                      onClick={() => console.log("Top 10")}
-                    />
-                  ))}
-                </div>
+
+              <div className="row-425 row-426 recent-width recent-books-container">
+                {recent.map((ele, idx) => (
+                  <Top10Mapper
+                    item={ele}
+                    index={idx}
+                    onClick={() => console.log("Top 10")}
+                  />
+                ))}
               </div>
             </div>
           </div>
@@ -466,53 +500,71 @@ function HomePage() {
         {/* Free Book  */}
         <div className="free-book-section" style={{ position: "relative" }}>
           <p className="free-book-label">Free Book of The Week</p>
-          <div className="free-book-rectangle grounded-radiants">
-            <div className="timer-and-free-book-details">
-              {/* Timer  */}
-              <div className="timer-div">
-                <p className="count-label">00</p>
-                <p className="day-label">D</p>
-                <p className="count-label">00</p>
-                <p className="day-label">H</p>
-                <p className="count-label">00</p>
-                <p className="day-label">M</p>
-              </div>
-              {/* Book details  */}
-              <div className="d-flex flex-row">
-                {/* <span className="gradient-blue" /> */}
-                <div
-                  //   style={{
-                  //     backgroundImage: `url(${freeBookOfWeek.image})`,
-                  //   }}
-                  className="free-book-image"
-                >
-                  <div>
-                    <p className="free-book-status">{freeBookOfWeek.status} </p>
-                    <p className="free-book-heading">
-                      {freeBookOfWeek.heading}{" "}
-                    </p>
-                  </div>
-                  <img src={freeBookOfWeek.image} className="free-book-image" />
+          <div className="gradient-border">
+            <div className="free-book-rectangle grounded-radiants">
+              <div className="timer-and-free-book-details">
+                {/* Timer  */}
+                <div className="timer-div">
+                  <p className="count-label">00</p>
+                  <p className="day-label">D</p>
+                  <p className="count-label">00</p>
+                  <p className="day-label">H</p>
+                  <p className="count-label">00</p>
+                  <p className="day-label">M</p>
                 </div>
+                {/* Book details  */}
+                <div className="d-flex flex-row">
+                  <span className="gradient-blue-ball" />
+                  <span className="gradient-green-ball" />
+                  <span className="gradient-red-ball" />
+                  <div className="three-lines">
+                    <img src={THREE_LINES} className="three-lines-image" />
+                  </div>
+                  <div
+                    //   style={{
+                    //     backgroundImage: `url(${freeBookOfWeek.image})`,
+                    //   }}
+                    className="free-book-image"
+                  >
+                    <div>
+                      <p className="free-book-status">
+                        {freeBookOfWeek.status}{" "}
+                      </p>
+                      <p className="free-book-heading">
+                        {freeBookOfWeek.heading}
+                      </p>
+                    </div>
+                    <img
+                      src={freeBookOfWeek.image}
+                      className="free-book-image"
+                    />
+                  </div>
 
-                <div className="free-book-details">
-                  <p className="free-book-title">{freeBookOfWeek.title}</p>
-                  <p className="free-book-category">
-                    <FontAwesomeIcon icon={faThLarge} />{" "}
-                    {freeBookOfWeek.category}
-                  </p>
-                  <p className="free-book-description">
-                    {freeBookOfWeek.description.length > 150
-                      ? `${freeBookOfWeek.description.substring(0, 150)}...`
-                      : freeBookOfWeek.description}
-                  </p>
-                  <div className="d-flex  justify-content-between">
-                    <p className="free-book-chapters">
-                      <FontAwesomeIcon icon={faBook} />{" "}
-                      {`${freeBookOfWeek.chapters} Chapters`}
+                  <div className="free-book-details">
+                    <p className="free-book-title">
+                      {window.screen.width <= 768
+                        ? `${freeBookOfWeek.title.substring(0, 30)}...`
+                        : freeBookOfWeek.title.length > 50
+                        ? `${freeBookOfWeek.title.substring(0, 50)}...`
+                        : freeBookOfWeek.title}
                     </p>
-                    <div className="read-div mt-1">
-                      <p className="text-center read-p">READ</p>
+                    <p className="free-book-category">
+                      <FontAwesomeIcon icon={faThLarge} />{" "}
+                      {freeBookOfWeek.category}
+                    </p>
+                    <p className="free-book-description">
+                      {freeBookOfWeek.description.length > 150
+                        ? `${freeBookOfWeek.description.substring(0, 150)}...`
+                        : freeBookOfWeek.description}
+                    </p>
+                    <div className="free-chapters-div">
+                      <p className="free-book-chapters">
+                        <FontAwesomeIcon icon={faBook} />{" "}
+                        {`${freeBookOfWeek.chapters} Chapters`}
+                      </p>
+                      <div className="read-div mt-1">
+                        <p className="text-center read-p">READ</p>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -527,7 +579,7 @@ function HomePage() {
             <div className="col-md-4 col-sm-6">
               <div
                 style={{
-                  backgroundImage: `url(${URBAN})`,
+                  background: `linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ), url(${URBAN})`,
                 }}
                 className="book-category-image"
               >
@@ -538,7 +590,7 @@ function HomePage() {
             <div className="col-md-4 col-sm-6">
               <div
                 style={{
-                  backgroundImage: `url(${SCIFI})`,
+                  background: `linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ), url(${SCIFI})`,
                 }}
                 className="book-category-image"
               >
@@ -548,7 +600,7 @@ function HomePage() {
             <div className="col-md-4 col-sm-6">
               <div
                 style={{
-                  backgroundImage: `url(${FANTASY})`,
+                  background: `linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ), url(${FANTASY})`,
                 }}
                 className="book-category-image"
               >
@@ -576,7 +628,7 @@ function HomePage() {
         <p className="recent-updates-label">Recent Chapter Updates</p>
 
         <div className="books-table mt-3 mb-5">
-          <table class="table recent-update-table">
+          <table class="table recent-update-table table-striped">
             <thead class="table-header">
               <tr>
                 <th scope="col" className="pl-4 border-0 table-header-labels">
@@ -594,14 +646,13 @@ function HomePage() {
             <tbody>
               {chapterUpdates.map((item, idx) => (
                 <tr>
-                  <td className="border-0">
+                  <td className="border-0 ">
                     <p className="table-labels pl-4">{item.name} </p>
                   </td>
-                  <td className="border-0">
-                    {" "}
+                  <td className="border-0 ">
                     <p className="table-labels">{item.chapters} </p>
                   </td>
-                  <td className="border-0">
+                  <td className="border-0 ">
                     <p className="table-labels">
                       {moment(item.date).fromNow()}{" "}
                     </p>

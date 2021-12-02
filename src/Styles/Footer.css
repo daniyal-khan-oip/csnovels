@@ -131,10 +131,13 @@
 
 @media (max-width: 767px) {
   .link-item {
+    display: none;
+
     font-size: 16px;
   }
   .links-heading {
     font-size: 19px;
+    display: none;
   }
   .footer-logo {
     width: 145px;

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import StarRatings from "react-star-ratings";
-
+import CSGO from "../Assets/Images/Go.png";
 function HeaderDropdown() {
   const [options, setOptions] = useState([
     {
@@ -32,14 +32,16 @@ function HeaderDropdown() {
   return (
     <div className="header-dropdown">
       <div className="dropdown-pointer" />
+      {/* User Logged In Div  */}
       <div className="image-and-info-div">
         <div className="user-acc-circle-dropdown">
           <p className="user-acc-label-dropdown">C</p>
         </div>
+
         <div className="user-acc-info-div">
           <p className="username-dropdown">CannedSplam</p>
           <p className="user-email-dropdown">admin@cannesplam.com</p>
-          <div className="d-flex flex-row align-items-center"> 
+          <div className="d-flex flex-row align-items-center">
             <StarRatings
               starDimension={12}
               rating={1}
@@ -51,7 +53,11 @@ function HeaderDropdown() {
           </div>
         </div>
       </div>
-
+      {/* CS+ Advertisment  */}
+      <div className="cs-plus-image-div">
+        <img src={CSGO} />
+      </div>
+      {/* Drop Down Menu Items  */}
       {options.map((ele, idx) => {
         return <p className="dropdown-options-label">{ele.name}</p>;
       })}

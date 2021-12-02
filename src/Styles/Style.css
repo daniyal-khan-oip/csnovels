@@ -4,12 +4,24 @@ body #root {
   overflow-x: hidden;
 }
 .section-div {
-  margin: 40px 0px;
+  margin: 30px 0px;
 }
-
+.section-heading-div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.view-all {
+  text-transform: uppercase;
+  font-size: 16px;
+  font-family: "Montserrat-Medium";
+  cursor: pointer;
+  margin: 0;
+  color: rgb(175, 175, 175);
+}
 .section-heading {
   border-left: 4px solid #ffc240;
-  padding-left: 10px;
+  padding-left: 15px;
   margin: 0;
   font-size: 22px;
   color: rgb(77, 74, 74);
@@ -28,6 +40,11 @@ body #root {
   color: rgb(77, 74, 74);
   font-weight: 500;
   margin: 0px 0px 20px 0px;
+}
+
+.spacing-adjust {
+  max-width: calc(100% + 9px);
+  margin-left: auto;
 }
 .most-wanted-books {
   display: flex;
@@ -53,7 +70,7 @@ body #root {
 .most-wanted-books .mp-book-status {
   position: absolute;
   top: 2px;
-  right: 10px;
+  right: 3px;
   font-family: "Montserrat-Medium";
   font-size: 6px;
   text-transform: uppercase;
@@ -214,8 +231,13 @@ body #root {
   cursor: pointer;
   display: flex;
   margin: 10px 0px;
-  /* flex-direction: row; */
 }
+.recent-books-container .top10Books {
+  cursor: pointer;
+  display: flex;
+  margin: 10px 0px;
+}
+
 .top10-image:hover {
   -moz-transform: scale(1.1);
   -webkit-transform: scale(1.1);
@@ -329,14 +351,32 @@ body #root {
 }
 
 /* Free Book Css  */
+.three-lines-image {
+  width: 618px;
+  height: 376px;
+}
+.three-lines {
+  width: 150px;
+  height: 35px;
+  top: 143px;
+  right: 205px;
+  position: absolute;
+  transform: rotate(8deg);
+}
 .free-book-rectangle {
   /* padding: 40px 200px; */
   flex-direction: column;
+  box-shadow: 0 0 11px rgb(33 33 33 / 20%);
+
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
+.free-chapters-div {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
 .timer-and-free-book-details {
   max-width: 620px;
   margin: 30px 0px;
@@ -383,6 +423,8 @@ body #root {
   transition: transform 0.5s ease;
   /* object-fit: contain; */
   background-size: cover;
+  position: relative;
+  z-index: 1;
 }
 /* .free-book-image:hover > * {
   -moz-transform: scale(1.1);
@@ -391,6 +433,7 @@ body #root {
 .free-book-title {
   margin: 0;
   font-size: 27px;
+  line-height: 30px;
   font-family: "Montserrat-Bold";
   font-weight: 700;
   text-transform: capitalize;
@@ -402,7 +445,15 @@ body #root {
   color: rgb(148, 143, 143);
   font-size: 20px;
   font-family: "Montserrat-Medium";
+  margin: 6px 0px;
   text-transform: capitalize;
+}
+
+.gradient-border {
+  position: relative;
+  z-index: 99;
+  overflow: hidden;
+  border-radius: 20px;
 }
 
 .free-book-description {
@@ -410,6 +461,7 @@ body #root {
   color: rgb(77, 74, 74);
   font-size: 18px;
   font-weight: 500;
+  line-height: 22px;
   font-family: "Montserrat-SemiBold";
 }
 
@@ -437,9 +489,9 @@ body #root {
   /* background-image: `url(${URBAN})`, */
   width: 360px;
   cursor: pointer;
+  background-size: 100% 100% !important;
   height: 180px;
-  background-size: cover;
-  border-radius: 10px;
+  border-radius: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -456,10 +508,15 @@ body #root {
     border-radius: 1em;
     overflow: hidden;
   } */
+
+.table td {
+  vertical-align: inherit;
+}
 .books-table {
   border-radius: 15px;
   overflow: hidden;
   border: 5px solid #ffc240;
+  box-shadow: 0 3px 9px rgb(42 33 33 / 43%), inset 0 0 9px white;
 }
 table.recent-update-table {
   border-radius: 15px;
@@ -473,6 +530,11 @@ table.recent-update-table {
   background-color: #ffc240;
   padding: 10px 0px;
   border-radius: 15px;
+}
+td.read-div {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
 }
 .read-p {
   background-color: #ffc240;
@@ -490,10 +552,10 @@ table.recent-update-table {
   margin: 0;
 }
 .timer-div {
-  width: 205px;
+  width: 210px;
   margin-bottom: 20px;
   background-color: rgba(0, 0, 0, 0.04);
-  padding: 10px 10px;
+  padding: 13px 13px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -501,7 +563,7 @@ table.recent-update-table {
 .count-label {
   margin: 0;
   font-size: 20px;
-  background-color: #ffc240;
+  background-color: #fb9f15;
   border-radius: 5px;
   padding: 0px 5px;
   color: white;
@@ -519,18 +581,39 @@ table.recent-update-table {
   object-fit: contain;
 }
 
-.gradient-blue::before {
+.gradient-blue-ball::before {
   content: "";
-  width: 250px;
-  height: 250px;
+  width: 130px;
+  height: 130px;
   border-radius: 100%;
-  background-color: rgba(45, 30, 0, 0.2);
+  background-color: rgb(90 154 199 / 14%);
   position: absolute;
-  z-index: -1;
-  top: 100px;
-  left: 50px;
+  z-index: 0;
+  top: 34px;
+  left: 159px;
 }
-
+.gradient-green-ball::before {
+  content: "";
+  width: 90px;
+  height: 90px;
+  border-radius: 100%;
+  background-color: rgb(108 217 167 / 11%);
+  position: absolute;
+  z-index: 0;
+  top: 184px;
+  left: 77px;
+}
+.gradient-red-ball::before {
+  content: "";
+  width: 125px;
+  height: 125px;
+  border-radius: 100%;
+  background-color: rgb(191 33 157 / 11%);
+  position: absolute;
+  z-index: 0;
+  top: 81px;
+  right: -26px;
+}
 .border-gradient {
   border: 10px solid;
   border-image-slice: 1;
@@ -548,7 +631,7 @@ table.recent-update-table {
   background-clip: padding-box;
   padding: 10px;
   /* just to show box-shadow still works fine */
-  /* box-shadow: 0 3px 9px black, inset 0 0 9px white; */
+  box-shadow: 0 3px 9px rgb(42 33 33 / 43%), inset 0 0 9px white;
 }
 
 .grounded-radiants::after {
@@ -635,7 +718,7 @@ table.recent-update-table {
 .completed-book-title {
   margin: 0;
   font-family: "Montserrat-Bold";
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 00;
   font-weight: 700;
   text-transform: capitalize;
@@ -679,7 +762,8 @@ table.recent-update-table {
   }
 
   .top10-book-title {
-    font-size: 15px;
+    font-size: 14px;
+    width: 150px;
   }
   .top10-book-genre {
     font-size: 13px;
@@ -689,6 +773,36 @@ table.recent-update-table {
   }
   .completed-books .completed-book-status {
     right: 1px;
+  }
+  .top10BookColor_1 {
+    font-size: 15px;
+  }
+  .top10BookColor_2 {
+    font-size: 15px;
+  }
+  .top10BookColor_3 {
+    font-size: 15px;
+  }
+  .top10BookColor_4 {
+    font-size: 15px;
+  }
+  .top10BookColor_5 {
+    font-size: 15px;
+  }
+  .top10BookColor_6 {
+    font-size: 15px;
+  }
+  .top10BookColor_7 {
+    font-size: 15px;
+  }
+  .top10BookColor_8 {
+    font-size: 15px;
+  }
+  .top10BookColor_9 {
+    font-size: 15px;
+  }
+  .top10BookColor_10 {
+    font-size: 15px;
   }
 }
 
@@ -703,7 +817,10 @@ table.recent-update-table {
     width: 147%;
   }
   .mp-book-image {
-    width: 95px;
+    width: 90px;
+  }
+  .most-wanted-books .mp-book-status {
+    right: 4px;
   }
   .most-wanted-books .mp-book-heading {
     font-size: 18px;
@@ -717,10 +834,13 @@ table.recent-update-table {
     font-size: 10px;
   }
   .mp-book-description {
-    font-size: 10px;
+    font-size: 9px;
   }
   .mp-book-chapters {
-    font-size: 11px;
+    font-size: 10px;
+  }
+  .view-all {
+    font-size: 12px;
   }
   .og-book-image {
     width: 109px;
@@ -730,12 +850,12 @@ table.recent-update-table {
     font-size: 7px;
   }
   .og-books .og-book-heading {
-    right: -16px;
-    font-size: 24px;
-    top: 55px;
+    right: -22px;
+    font-size: 22px;
+    top: 53px;
   }
   .og-book-title {
-    font-size: 11px;
+    font-size: 10px;
   }
   .og-book-chapters {
     font-size: 10px;
@@ -849,17 +969,26 @@ table.recent-update-table {
 }
 
 @media (max-width: 767px) {
+  .recent-books-container {
+    height: 400px;
+  }
+  .books-container {
+    height: 597px;
+  }
+  .most-wanted-books .mp-book-status {
+    top: 2px;
+    right: 3px;
+  }
+  .mp-book-title {
+    font-size: 12px;
+  }
   .mp-image-and-text-container {
     width: 98%;
   }
   .books-container {
     overflow-x: scroll;
   }
-  .row-425 {
-    flex-flow: nowrap;
-    overflow-x: auto;
-    margin: 0px 6px;
-  }
+
   .og-books .og-book-status {
     left: 76px;
     right: 0;
@@ -887,9 +1016,9 @@ table.recent-update-table {
     margin-top: 5px;
   }
   .most-wanted-books .mp-book-heading {
-    font-size: 20px;
-    top: 43px;
-    right: -14px;
+    font-size: 18px;
+    top: 37px;
+    right: -19px;
   }
   .top10-image {
     width: 66px;
@@ -908,10 +1037,7 @@ table.recent-update-table {
     font-size: 10px;
     width: 52px;
   }
-  .recent-books-container {
-    height: auto;
-    overflow-x: auto;
-  }
+
   .free-book-label {
     margin-top: -45px;
   }
@@ -952,15 +1078,94 @@ table.recent-update-table {
   }
 }
 @media (max-width: 425px) {
+  tr {
+    display: table-row;
+  }
+
+  thead.table-header {
+    display: none;
+  }
+
+  table.table.recent-update-table.table-striped {
+    margin: 0;
+    margin-top:20px
+  }
+  td.read-div {
+    display: none;
+  }
+  tbody tr td:nth-child(1) {
+    /* background-color: red; */
+    width: 150px;
+  }
+  tbody tr td:nth-child(2) {
+    width: 40px;
+    font-weight: 800;
+    /* background-color: green; */
+  }
+  tbody tr td:nth-child(3) {
+    width: 92px;
+    /* background-color: yellow; */
+  }
+  thead tr th:last-child {
+    display: none;
+  }
+  /* tbody tr td:last-child {
+    display: none;
+    background-color: blue;
+  } */
+  .timer-and-free-book-details {
+    max-width: 290px;
+  }
+
+  .recent-books-container::-webkit-scrollbar {
+    display: none;
+  }
+  .books-container::-webkit-scrollbar {
+    display: none;
+  }
+  .spacing-adjust::-webkit-scrollbar {
+    display: none;
+  }
+  .spacing-adjust {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+  .completed-books .completed-book-heading {
+    width: 64px;
+  }
+  .books-container {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+  .top10-book-title {
+    font-size: 14px;
+    width: 107px;
+  }
+  .row-425 {
+    flex-flow: nowrap;
+    overflow-x: auto;
+    margin: 0px 6px;
+  }
+  .recent-books-container {
+    height: auto;
+    overflow-x: auto;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
   .row-425.row-426 {
     display: flex;
   }
   .recent-width .top10Books {
     width: 72px;
     display: block;
+    margin: 0px 5px;
   }
   .free-book-category {
-    font-size: 13px;
+    font-size: 11px;
+    margin: 0;
+  }
+  .free-chapters-div {
+    margin: 0;
   }
   .most-wanted-books {
     margin-bottom: 20px;
@@ -1009,12 +1214,14 @@ table.recent-update-table {
   }
   .free-book-title {
     font-size: 12px;
+    line-height: 14px;
   }
   .free-book-description {
-    font-size: 7px;
+    font-size: 9px;
+    line-height: 10px;
   }
   .free-book-chapters {
-    font-size: 12px;
+    font-size: 11px;
   }
   .book-categories-section {
     display: none;
@@ -1029,23 +1236,44 @@ table.recent-update-table {
     padding: 0 4px;
   }
   .completed-book-image {
-    width: 72px;
+    width: 100%;
   }
-
+  .gradient-blue-ball::before {
+    width: 92px;
+    height: 92px;
+    top: 34px;
+    left: 10px;
+  }
+  .gradient-green-ball::before {
+    width: 62px;
+    height: 62px;
+    top: 186px;
+    left: 31px;
+  }
+  .three-lines {
+    width: 150px;
+    height: 35px;
+    top: 148px;
+    right: -23px;
+    transform: rotate(14deg);
+  }
+  .three-lines-image {
+    width: 239px;
+    height: 176px;
+    /* background: red; */
+  }
   .completed-books .completed-book-status {
-    position: absolute;
-    left: 36px;
+    left: 50px;
     right: 0;
-    top: -1px;
-    text-transform: capitalize;
+    top: 1px;
     font-size: 7px;
   }
   .completed-books .completed-book-heading {
-    left: 5px;
+    left: 7px;
     right: 0;
-    font-size: 15px;
+    font-size: 20px;
     line-height: 16px;
-    top: 36px;
+    top: 52px;
     text-transform: capitalize;
   }
   .completed-book-chapters {
@@ -1053,6 +1281,7 @@ table.recent-update-table {
   }
   .completed-book-title {
     font-size: 10px;
+    line-height: 12px;
   }
   .completed-books-container {
     display: flex;
@@ -1063,13 +1292,21 @@ table.recent-update-table {
   /* .books-table {
     width: 290px;
   } */
-  td.read-div {
-    display: none;
-  }
+
   .recent-updates-label {
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 700;
+    margin-bottom: -36px !important;
+    /* margin-left: -15px;
+    margin-right: -15px; */
     text-align: center;
+    background-color: #ffc107;
+    border-radius: 20px 20px 0px 0px;
+  }
+  .books-table {
+    box-shadow: none;
+    border:0;
+    border-radius: 0;
   }
   .section-heading-inner {
     width: 100%;
@@ -1093,16 +1330,17 @@ table.recent-update-table {
     padding-right: 0;
   }
   .og-books .og-book-status {
-    left: 30px;
+    left: 31px;
     right: 0;
-    top: 0px;
-    font-size: 5px;
+    top: 1px;
+    font-size: 4px;
   }
   .og-books {
     padding-right: 0;
   }
   .og-book-title {
     font-size: 9px;
+    line-height: 10px;
   }
   .og-book-chapters {
     display: none;
@@ -1134,7 +1372,7 @@ table.recent-update-table {
   .recent-books-container .top10BookColor_8 {
     display: none;
   }
-  .recent-books-container .recent-books-container .top10BookColor_9 {
+  .recent-books-container .top10BookColor_9 {
     display: none;
   }
   .recent-books-container .top10BookColor_10 {
@@ -1145,6 +1383,7 @@ table.recent-update-table {
   }
   .recent-books-container .top10-book-title {
     font-size: 10px;
+    width: 77px;
   }
   .recent-books-container .top10-book-genre {
     display: none;
@@ -1180,6 +1419,8 @@ table.recent-update-table {
   .mp-book-title {
     font-size: 10px;
     padding-left: 0;
+    margin-top: 5px;
+    line-height: 12px;
   }
   .book-details {
     padding-left: 0px;
@@ -1194,5 +1435,38 @@ table.recent-update-table {
   }
   .community-link {
     margin-left: 0px !important;
+  }
+}
+@media (max-width: 375px) {
+  .completed-books .completed-book-status {
+    left: 47px;
+    right: 0;
+    top: 2px;
+    font-size: 5px;
+  }
+  .completed-books .completed-book-heading {
+    left: 6px;
+    right: 0;
+    font-size: 18px;
+    line-height: 16px;
+    top: 44px;
+    text-transform: capitalize;
+  }
+}
+
+@media (max-width: 320px) {
+  .completed-books .completed-book-status {
+    left: 37px;
+    right: 0;
+    top: 2px;
+    font-size: 5px;
+  }
+  .completed-books .completed-book-heading {
+    left: 5px;
+    right: 0;
+    font-size: 15px;
+    line-height: 16px;
+    top: 35px;
+    text-transform: capitalize;
   }
 }

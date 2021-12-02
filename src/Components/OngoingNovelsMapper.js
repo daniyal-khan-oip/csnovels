@@ -11,7 +11,9 @@ function OngoingNovelsMapper({ item, onClick }) {
         <p className="og-book-heading">{item.heading} </p>
       </div>
       <p className="og-book-title">
-        {item.title.length > 40
+        {window.screen.width <= 768
+          ? `${item.title.substring(0, 25)}...`
+          : item.title.length > 40
           ? `${item.title.substring(0, 40)}...`
           : item.title}
       </p>

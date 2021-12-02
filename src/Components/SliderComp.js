@@ -1,3 +1,5 @@
+import { faThLarge } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import Slider from "react-slick";
 
@@ -7,7 +9,7 @@ function SampleNextArrow(props) {
     <div
       className={className}
       style={{
-        right: '25px',
+        right: "25px",
         zIndex: 999,
       }}
       onClick={onClick}
@@ -21,11 +23,14 @@ function SamplePrevArrow(props) {
     <div
       className={className}
       style={{
-        left: '25px',
+        left: "25px",
         zIndex: 999,
+        color: "red",
       }}
       onClick={onClick}
-    />
+    >
+      <FontAwesomeIcon icon={faThLarge} />
+    </div>
   );
 }
 

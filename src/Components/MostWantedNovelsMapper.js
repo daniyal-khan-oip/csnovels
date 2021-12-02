@@ -12,13 +12,19 @@ function MostWantedNovelsMapper({ item, onClick }) {
         <p className="mp-book-heading">{item.heading} </p>
       </div>
       <div className="book-details">
-        <p className="mp-book-title">{item.title}</p>
+        <p className="mp-book-title">
+          {window.screen.width <= 768
+            ? `${item.title.substring(0, 30)}...`
+            : item.title.length > 50
+            ? `${item.title.substring(0, 50)}...`
+            : item.title}
+        </p>
         <p className="mp-book-category">
           <FontAwesomeIcon icon={faThLarge} /> {item.category}
         </p>
         <p className="mp-book-description">
-          {item.description.length > 60
-            ? `${item.description.substring(0, 60)}...`
+          {item.description.length > 70
+            ? `${item.description.substring(0, 70)}...`
             : item.description}
         </p>
         <p className="mp-book-chapters">

@@ -1,3 +1,34 @@
+/* new start  */
+/* .header-items div.myitem:nth-child(1) {
+  flex: 0 0 18%;
+  max-width: 18%;
+}
+
+.header-items div.myitem:nth-child(2) {
+  flex: 0 0 14%;
+  max-width: 14%;
+  padding-right: 0;
+}
+
+.header-items div.myitem:nth-child(3) {
+  flex: 0 0 47%;
+  max-width: 48%;
+}
+
+.header-items div.myitem:nth-child(4) {
+  flex: 0 0 15%;
+  max-width: 25%;
+  padding-left: 0;
+  justify-content: space-around;
+}
+
+.community-link {
+  margin-left: 0;
+  margin-right: 15px;
+} */
+
+/* new end  */
+
 .header-logo {
   width: 170px;
   object-fit: contain;
@@ -9,7 +40,7 @@
   font-family: "Montserrat-Medium";
   cursor: pointer;
   margin: 0;
-  color: grey;
+  color: black;
 }
 
 .cat-and-icon-div {
@@ -25,6 +56,17 @@
   /* border-bottom: 1px solid silver; */
   /* display: flex;
   align-items: center; */
+}
+
+.cs-plus-image-div {
+  width: 230px;
+  display: block;
+  /* text-align: center; */
+}
+
+.cs-plus-image-div img {
+  width: 220px;
+  object-fit: contain;
 }
 
 .header-bg {
@@ -68,7 +110,7 @@
 
 .community-link {
   text-decoration: none;
-  color: grey;
+  color: black;
   text-transform: capitalize;
   margin-left: 20px;
   font-family: "Montserrat-Medium";
@@ -110,6 +152,7 @@
 .user-acc-label-dropdown {
   font-size: 29px;
   color: white;
+  font-family: "Montserrat-Medium";
   margin: 0;
 }
 .content-left {
@@ -162,6 +205,7 @@
   text-transform: capitalize;
   font-size: 15px;
   font-family: "Montserrat-Medium";
+  margin: 9px 0px;
   cursor: pointer;
   color: white;
 }
@@ -222,7 +266,6 @@
   .header-dropdown {
     right: 142px;
   }
-  
 }
 
 @media (max-width: 1024px) {
@@ -260,7 +303,6 @@
   .header-dropdown {
     right: 14px;
   }
-  
 }
 
 @media (max-width: 767px) {
@@ -326,6 +368,10 @@
 }
 
 @media (max-width: 425px) {
+  .header-dropdown {
+    top: 69px;
+    left: 158px;
+  }
   .small-logo {
     display: block;
   }
@@ -333,13 +379,13 @@
     font-size: 12px;
   }
   .dropdown-pointer {
-    left: 70px;
+    left: 202px;
   }
   .search-container {
     width: 300px;
   }
   .search-textInput {
-    width: 190px;
+    width: 174px;
   }
   .footer-parent {
     height: 100% !important;
@@ -394,5 +440,25 @@
 
   .row.header-items div.myitem:nth-child(4) .community-link {
     display: none;
+  }
+}
+
+@media (max-width: 375px) {
+  .header-dropdown {
+    top: 66px;
+    left: 113px;
+  }
+  .search-textInput {
+    width: 161px;
+  }
+}
+
+@media (max-width: 375px) {
+  .search-textInput {
+    width: 129px;
+  }
+  .header-dropdown {
+    top: 66px;
+    left: 63px;
   }
 }

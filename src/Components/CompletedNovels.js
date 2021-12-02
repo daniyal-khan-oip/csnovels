@@ -11,8 +11,10 @@ function CompletedNovels({ item, onClick }) {
         <p className="completed-book-heading">{item.heading} </p>
       </div>
       <p className="completed-book-title">
-        {item.title.length > 40
-          ? `${item.title.substring(0, 40)}...`
+        {window.screen.width <= 768
+          ? `${item.title.substring(0, 25)}...`
+          : item.title.length > 35
+          ? `${item.title.substring(0, 35)}...`
           : item.title}
       </p>
       <p className="completed-book-chapters">
