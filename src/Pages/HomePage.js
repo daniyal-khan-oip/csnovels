@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Header from "../Components/Header";
 import { useState } from "react";
+
 import {
   faThLarge,
   faBook,
@@ -12,6 +13,8 @@ import MostWantedNovelsMapper from "../Components/MostWantedNovelsMapper";
 import OngoingNovelsMapper from "../Components/OngoingNovelsMapper";
 import Top10Mapper from "../Components/Top10Mapper";
 import SliderComp from "../Components/SliderComp";
+import { connect } from "react-redux";
+import * as actions from "../store/actions/actions";
 import THREE_LINES from "../Assets/Images/three-lines.png";
 import BOOK1 from "../Assets/Images/top10/1.png";
 import BOOK2 from "../Assets/Images/top10/2.png";
@@ -22,20 +25,31 @@ import BOOK6 from "../Assets/Images/top10/6.png";
 import BOOK7 from "../Assets/Images/top10/7.png";
 import BOOK8 from "../Assets/Images/top10/8.png";
 import BOOK9 from "../Assets/Images/top10/9.png";
-import BOOK10 from "../Assets/Images/top10/10.png";
 import BOOK11 from "../Assets/Images/top10/11.png";
 import BOOK12 from "../Assets/Images/top10/12.png";
 import URBAN from "../Assets/Images/urban.png";
 import SCIFI from "../Assets/Images/scifi.png";
 import FANTASY from "../Assets/Images/fantasy.png";
-import Countdown from "react-countdown";
 import SLIDE_IMAGE_1 from "../Assets/Images/slide-image.png";
-import SLIDE_IMAGE_2 from "../Assets/Images/slide-image2.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import moment from "moment";
 import CompletedNovels from "../Components/CompletedNovels";
+import "../Styles/Mirza.css";
+import SignInSignUpModal from "../Components/SignInSignUpModal";
+import AuthModal from "../Components/AuthModal";
+import { useNavigate } from "react-router-dom";
 
-function HomePage() {
+const HomePage = ({
+  authReducer,
+  booksReducer,
+  favoriteThisBook,
+  getAllBooks,
+}) => {
+  const navigate = useNavigate();
+  const accessToken = authReducer?.accessToken;
+  const userId = authReducer?.userData?._id;
+  const [isLoading, setIsLoading] = useState(false);
+
   const freeBookOfWeek = {
     _id: 1,
     title:
@@ -49,341 +63,85 @@ function HomePage() {
       "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available  Lorem ipsum may be used as a placeholder before final copy is available..",
   };
 
-  const [mostPopular, setMostPopular] = useState([
-    {
-      _id: 1,
-      title:
-        "Book Title Goes Here On Two Lines Even Test Test Test Test Test Test Test",
-      category: "urban",
-      heading: "great marshal",
-      chapters: 3471,
-      status: "completed",
-      image: BOOK_CARD,
-      description:
-        "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available  Lorem ipsum may be used as a placeholder before final copy is available..",
-    },
-    {
-      _id: 2,
-      title:
-        "Book Title Goes Here On Two Lines Even Test Test Test Test Test Test Test",
-      category: "urban",
-      heading: "great marshal",
-      status: "completed",
-      chapters: 3471,
-      image: BOOK_CARD,
-      description:
-        "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available  Lorem ipsum may be used as a placeholder before final copy is available..",
-    },
-    {
-      _id: 12,
-      title:
-        "Book Title Goes Here On Two Lines Even Test Test Test Test Test Test Test",
-      category: "urban",
-      heading: "great marshal",
-      chapters: 3471,
-      status: "completed",
-      image: BOOK_CARD,
-      description:
-        "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available  Lorem ipsum may be used as a placeholder before final copy is available..",
-    },
-    {
-      _id: 22,
-      title:
-        "Book Title Goes Here On Two Lines Even Test Test Test Test Test Test Test",
-      category: "urban",
-      heading: "great marshal",
-      status: "completed",
-      chapters: 3471,
-      image: BOOK_CARD,
-      description:
-        "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available  Lorem ipsum may be used as a placeholder before final copy is available..",
-    },
-    {
-      _id: 11,
-      title:
-        "Book Title Goes Here On Two Lines Even Test Test Test Test Test Test Test",
-      category: "urban",
-      heading: "great marshal",
-      chapters: 3471,
-      status: "completed",
-      image: BOOK_CARD,
-      description:
-        "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available  Lorem ipsum may be used as a placeholder before final copy is available..",
-    },
-    {
-      _id: 12,
-      title:
-        "Book Title Goes Here On Two Lines Even Test Test Test Test Test Test Test",
-      category: "urban",
-      heading: "great marshal",
-      status: "completed",
-      chapters: 3471,
-      image: BOOK_CARD,
-      description:
-        "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available  Lorem ipsum may be used as a placeholder before final copy is available..",
-    },
-  ]);
-
-  const [ongoing, setOngoing] = useState([
-    {
-      _id: 1,
-      status: "completed",
-      heading: "great marshal",
-      title:
-        "Book Title Goes Here On Two Lines Even Test Test Test Test Test Test Test",
-      category: "urban",
-      chapters: 3471,
-      image: BOOK_CARD,
-      description:
-        "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available  Lorem ipsum may be used as a placeholder before final copy is available..",
-    },
-    {
-      _id: 2,
-      heading: "great marshal",
-      status: "completed",
-      title:
-        "Book Title Goes Here On Two Lines Even Test Test Test Test Test Test Test",
-      category: "urban",
-      chapters: 3471,
-      image: BOOK_CARD,
-      description:
-        "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available  Lorem ipsum may be used as a placeholder before final copy is available..",
-    },
-    {
-      _id: 3,
-      heading: "great marshal",
-      status: "completed",
-      title:
-        "Book Title Goes Here On Two Lines Even Test Test Test Test Test Test Test",
-      category: "urban",
-      chapters: 3471,
-      image: BOOK_CARD,
-      description:
-        "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available  Lorem ipsum may be used as a placeholder before final copy is available..",
-    },
-    {
-      _id: 4,
-      heading: "great marshal",
-      status: "completed",
-      title:
-        "Book Title Goes Here On Two Lines Even Test Test Test Test Test Test Test",
-      category: "urban",
-      chapters: 3471,
-      image: BOOK_CARD,
-      description:
-        "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available  Lorem ipsum may be used as a placeholder before final copy is available..",
-    },
-    {
-      _id: 5,
-      heading: "great marshal",
-      status: "completed",
-      title:
-        "Book Title Goes Here On Two Lines Even Test Test Test Test Test Test Test",
-      category: "urban",
-      chapters: 3471,
-      image: BOOK_CARD,
-      description:
-        "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available  Lorem ipsum may be used as a placeholder before final copy is available..",
-    },
-    {
-      _id: 6,
-      heading: "great marshal",
-      status: "completed",
-      title:
-        "Book Title Goes Here On Two Lines Even Test Test Test Test Test Test Test",
-      category: "urban",
-      chapters: 3471,
-      image: BOOK_CARD,
-      description:
-        "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available  Lorem ipsum may be used as a placeholder before final copy is available..",
-    },
-  ]);
-
-  const [completed, setCompleted] = useState([
-    {
-      _id: 1,
-      status: "completed",
-      heading: "great marshal",
-      title:
-        "Book Title Goes Here On Even Two Lines Test Test Test Test Test Test Test",
-      category: "urban",
-      chapters: 3471,
-      image: BOOK_CARD,
-      description:
-        "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available  Lorem ipsum may be used as a placeholder before final copy is available..",
-    },
-    {
-      _id: 2,
-      heading: "great marshal",
-      status: "completed",
-      title:
-        "Book Title Goes Here On Even Two Lines Test Test Test Test Test Test Test",
-      category: "urban",
-      chapters: 3471,
-      image: BOOK_CARD,
-      description:
-        "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available  Lorem ipsum may be used as a placeholder before final copy is available..",
-    },
-    {
-      _id: 3,
-      heading: "great marshal",
-      status: "completed",
-      title:
-        "Book Title Goes Here On Even Two Lines Test Test Test Test Test Test Test",
-      category: "urban",
-      chapters: 3471,
-      image: BOOK_CARD,
-      description:
-        "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available  Lorem ipsum may be used as a placeholder before final copy is available..",
-    },
-    {
-      _id: 4,
-      heading: "great marshal",
-      status: "completed",
-      title:
-        "Book Title Goes Here On Even Two Lines Test Test Test Test Test Test Test",
-      category: "urban",
-      chapters: 3471,
-      image: BOOK_CARD,
-      description:
-        "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available  Lorem ipsum may be used as a placeholder before final copy is available..",
-    },
-    {
-      _id: 5,
-      heading: "great marshal",
-      status: "completed",
-      title:
-        "Book Title Goes Here On Even Two Lines Test Test Test Test Test Test Test Two",
-      category: "urban",
-      chapters: 3471,
-      image: BOOK_CARD,
-      description:
-        "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available  Lorem ipsum may be used as a placeholder before final copy is available..",
-    },
-    {
-      _id: 6,
-      heading: "great marshal",
-      status: "completed",
-      title:
-        "Book Title Goes Here On Even Two Lines Test Test Test Test Test Test Test Two",
-      category: "urban",
-      chapters: 3471,
-      image: BOOK_CARD,
-      description:
-        "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available  Lorem ipsum may be used as a placeholder before final copy is available..",
-    },
-  ]);
-
-  const [top10, setTop10] = useState([
-    {
-      _id: 1,
-      name: "my vampie system",
-      genre: "fantasy",
-      rating: 4.6,
-      image: BOOK1,
-    },
-    {
-      _id: 2,
-      name: "supreme magus",
-      genre: "fantasy",
-      rating: 4.8,
-      image: BOOK2,
-    },
-    {
-      _id: 3,
-      name: "cultivation online",
-      genre: "video games",
-      rating: 4.6,
-      image: BOOK3,
-    },
-    {
-      _id: 4,
-      name: "my three wives are beautiful",
-      genre: "fantasy",
-      rating: 4.9,
-      image: BOOK4,
-    },
-    {
-      _id: 5,
-      name: "my maids are all antagonis",
-      genre: "fantasy",
-      rating: 3.9,
-      image: BOOK5,
-    },
-    {
-      _id: 6,
-      name: "blood warlock: succubus panetric",
-      genre: "fantasy",
-      rating: 3.9,
-      image: BOOK6,
-    },
-    {
-      _id: 7,
-      name: "my three wives are beautiful",
-      genre: "fantasy",
-      rating: 3.9,
-      image: BOOK7,
-    },
-    {
-      _id: 8,
-      name: "complete martial arts attribution",
-      genre: "fantasy",
-      rating: 3.9,
-      image: BOOK7,
-    },
-    {
-      _id: 9,
-      name: "top tier proviene, secrtely",
-      genre: "fantasy",
-      rating: 3.9,
-      image: BOOK8,
-    },
-    {
-      _id: 10,
-      name: "my girlfriend from turquios",
-      genre: "fantasy",
-      rating: 3.9,
-      image: BOOK9,
-    },
-  ]);
-
-  const [recent, setRecent] = useState([
-    {
-      _id: 1,
-      name: "birth of the demonic sword",
-      genre: "fantasy",
-      rating: 4.6,
-      image: BOOK8,
-    },
-    {
-      _id: 2,
-      name: "my vampie system",
-      genre: "fantasy",
-      rating: 4.6,
-      image: BOOK1,
-    },
-    {
-      _id: 3,
-      name: "dual cultivation",
-      genre: "video games",
-      rating: 4.6,
-      image: BOOK11,
-    },
-    {
-      _id: 4,
-      name: "my three wives are beautiful",
-      genre: "fantasy",
-      rating: 4.9,
-      image: BOOK4,
-    },
-    {
-      _id: 5,
-      name: "farming inside the dungeon",
-      genre: "fantasy",
-      rating: 3.9,
-      image: BOOK12,
-    },
-  ]);
+  const [mostPopular, setMostPopular] = useState([]);
+  const [ongoing, setOngoing] = useState([]);
+  const [completed, setCompleted] = useState([]);
+  // const [completedDesktop, setCompletedDesktop] = useState([
+  //   {
+  //     _id: 3,
+  //     heading: "great marshal",
+  //     status: "completed",
+  //     title:
+  //       "Book Title Goes Here On Even Two Lines Test Test Test Test Test Test Test",
+  //     category: "urban",
+  //     chapters: 3471,
+  //     image: BOOK_CARD,
+  //     description:
+  //       "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available  Lorem ipsum may be used as a placeholder before final copy is available..",
+  //   },
+  //   {
+  //     _id: 4,
+  //     heading: "great marshal",
+  //     status: "completed",
+  //     title:
+  //       "Book Title Goes Here On Even Two Lines Test Test Test Test Test Test Test",
+  //     category: "urban",
+  //     chapters: 3471,
+  //     image: BOOK_CARD,
+  //     description:
+  //       "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available  Lorem ipsum may be used as a placeholder before final copy is available..",
+  //   },
+  //   {
+  //     _id: 5,
+  //     heading: "great marshal",
+  //     status: "completed",
+  //     title:
+  //       "Book Title Goes Here On Even Two Lines Test Test Test Test Test Test Test Two",
+  //     category: "urban",
+  //     chapters: 3471,
+  //     image: BOOK_CARD,
+  //     description:
+  //       "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available  Lorem ipsum may be used as a placeholder before final copy is available..",
+  //   },
+  //   {
+  //     _id: 6,
+  //     heading: "great marshal",
+  //     status: "completed",
+  //     title:
+  //       "Book Title Goes Here On Even Two Lines Test Test Test Test Test Test Test Two",
+  //     category: "urban",
+  //     chapters: 3471,
+  //     image: BOOK_CARD,
+  //     description:
+  //       "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available  Lorem ipsum may be used as a placeholder before final copy is available..",
+  //   },
+  //   {
+  //     _id: 7,
+  //     heading: "great marshal",
+  //     status: "completed",
+  //     title:
+  //       "Book Title Goes Here On Even Two Lines Test Test Test Test Test Test Test Two",
+  //     category: "urban",
+  //     chapters: 3471,
+  //     image: BOOK_CARD,
+  //     description:
+  //       "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available  Lorem ipsum may be used as a placeholder before final copy is available..",
+  //   },
+  //   {
+  //     _id: 8,
+  //     heading: "great marshal",
+  //     status: "completed",
+  //     title:
+  //       "Book Title Goes Here On Even Two Lines Test Test Test Test Test Test Test Two",
+  //     category: "urban",
+  //     chapters: 3471,
+  //     image: BOOK_CARD,
+  //     description:
+  //       "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available  Lorem ipsum may be used as a placeholder before final copy is available..",
+  //   },
+  // ]);
+  const [top10, setTop10] = useState([]);
+  const [recent, setRecent] = useState([]);
   const [chapterUpdates, setChapterUpdates] = useState([
     {
       _id: 1,
@@ -400,7 +158,6 @@ function HomePage() {
     },
     { _id: 4, name: "No. 1 supreme warrior", chapters: 3422, date: new Date() },
   ]);
-
   const [images, setImages] = useState([
     {
       _id: 1,
@@ -415,54 +172,120 @@ function HomePage() {
       image: SLIDE_IMAGE_1,
     },
   ]);
+
+  const favoriteBookHandler = (_id) => {
+    const data = {
+      bookId: _id,
+    };
+
+    setIsLoading(true);
+    favoriteThisBook(data, accessToken, "books").then(() => {
+      setIsLoading(false);
+    });
+  };
+
+  useEffect(() => {
+    setIsLoading(true);
+    getAllBooks(userId, accessToken).then(() => {
+      setIsLoading(false);
+    });
+  }, []);
+
+  useEffect(() => {
+    let mostPopularNovels = booksReducer?.books?.filter(
+      (ele) => ele?.isPopular
+    );
+    let ongoingNovels = booksReducer?.books?.filter(
+      (ele) => ele?.releaseSchedule !== "completed"
+    );
+    let completedNovels = booksReducer?.books?.filter(
+      (ele) => ele?.releaseSchedule === "completed"
+    );
+    let top10Books = booksReducer?.books?.sort(
+      (a, b) => b?.totalRates - a?.totalRates
+    );
+    let recentArrivedBooksDateWiseSorted = booksReducer?.books?.sort(
+      (a, b) => new Date(b.date) - new Date(a.date)
+    );
+    let recent5Arrived = [];
+    for (let i = 0; i < recentArrivedBooksDateWiseSorted?.length; i++) {
+      if (i < 5) {
+        recent5Arrived.push(recentArrivedBooksDateWiseSorted[i]);
+      }
+    }
+    setMostPopular(mostPopularNovels);
+    setCompleted(completedNovels);
+    setRecent(recent5Arrived);
+    setOngoing(ongoingNovels);
+    setTop10(top10Books);
+  }, [booksReducer?.books]);
+
   return (
     <>
-      {/* <div className="App"> */}
       <Header />
       {/* Slider  */}
       <SliderComp images={images} />
       <div className="container">
         {/* Most Popular  */}
-        <div className="section-div">
-          <div className="section-heading-div">
-            <p className="section-heading">MOST POPULAR</p>
-            <p className="view-all">
-              VIEW ALL <FontAwesomeIcon icon={faAngleRight} />
-            </p>
+        {mostPopular?.length > 0 && (
+          <div className="section-div most_popular">
+            <div className="mp-books-header">
+              <p className="mp-books-header-title">Most Popular</p>
+              <p
+                className="mp-books-view-all"
+                onClick={() => {
+                  navigate("/search", { state: { sortBy: "popular" } });
+                }}
+              >
+                VIEW ALL {<FontAwesomeIcon icon={faAngleRight} />}
+              </p>
+            </div>
+
+            <div className="row center-most-popular-in-mobile spacing-adjust">
+              {mostPopular?.map((item, idx) => (
+                <MostWantedNovelsMapper
+                  key={idx}
+                  item={item}
+                  isLoading={isLoading}
+                  favoriteBookHandler={favoriteBookHandler}
+                  onClick={() => console.log("Book Card")}
+                />
+              ))}
+            </div>
           </div>
-          {/* </div> */}
-          <div className="row center-most-popular-in-mobile spacing-adjust">
-            {mostPopular.map((item, idx) => (
-              <MostWantedNovelsMapper
-                item={item}
-                onClick={() => console.log("Book Card")}
-              />
-            ))}
-          </div>
-        </div>
+        )}
 
         {/* Ongoing Novels  */}
-        <div className="section-div">
-          <div className="section-heading-div">
-            <p className="section-heading">ONGOING NOVELS</p>
-            <p className="view-all">
-              VIEW ALL <FontAwesomeIcon icon={faAngleRight} />
-            </p>
-          </div>
+        {ongoing?.length > 0 && (
+          <div className="section-div ongoing_novel">
+            <div className="section-heading-div">
+              <p className="section-heading">ONGOING NOVELS</p>
+              <p
+                className="view-all"
+                onClick={() => {
+                  navigate("/search", { state: { contentStatus: "ongoing" } });
+                }}
+              >
+                VIEW ALL <FontAwesomeIcon icon={faAngleRight} />
+              </p>
+            </div>
 
-          {/* </div> */}
-          <div className="row row-425 spacing-adjust">
-            {ongoing.map((item, idx) => (
-              <OngoingNovelsMapper
-                item={item}
-                onClick={() => console.log("Book Card")}
-              />
-            ))}
+            <div className="row row-425 spacing-adjust">
+              {ongoing?.map((item, idx) => (
+                <OngoingNovelsMapper
+                  key={idx}
+                  item={item}
+                  isLoading={isLoading}
+                  favoriteBookHandler={favoriteBookHandler}
+                  onClick={() => console.log("Book Card")}
+                />
+              ))}
+            </div>
           </div>
-        </div>
+        )}
 
         {/* Top Ranking */}
-        <div className="section-div">
+        <div className="section-div top-10-section top_ranking">
           <p className="section-heading">TOP 10 RANKING</p>
           <hr style={{ height: "1px", backgroundColor: "rgba(0,0,0,0.02)" }} />
 
@@ -471,8 +294,9 @@ function HomePage() {
             <div className="col-md-8 col-sm-12">
               <p className="section-heading-inner">TOP 10.</p>
               <div className="books-container">
-                {top10.map((ele, idx) => (
+                {top10?.map((ele, idx) => (
                   <Top10Mapper
+                    key={idx}
                     item={ele}
                     index={idx}
                     onClick={() => console.log("Top 10")}
@@ -487,6 +311,7 @@ function HomePage() {
               <div className="row-425 row-426 recent-width recent-books-container">
                 {recent.map((ele, idx) => (
                   <Top10Mapper
+                    key={idx}
                     item={ele}
                     index={idx}
                     onClick={() => console.log("Top 10")}
@@ -520,12 +345,7 @@ function HomePage() {
                   <div className="three-lines">
                     <img src={THREE_LINES} className="three-lines-image" />
                   </div>
-                  <div
-                    //   style={{
-                    //     backgroundImage: `url(${freeBookOfWeek.image})`,
-                    //   }}
-                    className="free-book-image"
-                  >
+                  <div className="free-book-image">
                     <div>
                       <p className="free-book-status">
                         {freeBookOfWeek.status}{" "}
@@ -533,6 +353,7 @@ function HomePage() {
                       <p className="free-book-heading">
                         {freeBookOfWeek.heading}
                       </p>
+                      <p className="mp-cs-text">CS</p>
                     </div>
                     <img
                       src={freeBookOfWeek.image}
@@ -578,6 +399,10 @@ function HomePage() {
           <div className="row">
             <div className="col-md-4 col-sm-6">
               <div
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigate("/search", { state: { genre: "urban" } });
+                }}
                 style={{
                   background: `linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ), url(${URBAN})`,
                 }}
@@ -589,6 +414,10 @@ function HomePage() {
 
             <div className="col-md-4 col-sm-6">
               <div
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigate("/search", { state: { genre: "sci-fi" } });
+                }}
                 style={{
                   background: `linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ), url(${SCIFI})`,
                 }}
@@ -599,6 +428,10 @@ function HomePage() {
             </div>
             <div className="col-md-4 col-sm-6">
               <div
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigate("/search", { state: { genre: "fantasy" } });
+                }}
                 style={{
                   background: `linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ), url(${FANTASY})`,
                 }}
@@ -611,33 +444,63 @@ function HomePage() {
         </div>
 
         {/* Completed Novels  */}
-        <div className="section-div">
-          <p className="section-heading">COMPLETED NOVELS</p>
-          {/* </div> */}
-          <div className="row">
-            {completed.map((item, idx) => (
-              <CompletedNovels
-                item={item}
-                onClick={() => console.log("Book Card")}
-              />
-            ))}
+        {completed?.length > 0 && (
+          <div className="section-div complete_novels">
+            <div className="section-heading-div">
+              <p className="section-heading">COMPLETED NOVELS</p>
+              <p
+                className="view-all"
+                onClick={() => {
+                  navigate("/search", {
+                    state: { contentStatus: "completed" },
+                  });
+                }}
+              >
+                VIEW ALL <FontAwesomeIcon icon={faAngleRight} />
+              </p>
+            </div>
+            {/* </div> */}
+            <div className="row">
+              {window.screen.width > 1024
+                ? completed?.map((item, idx) => (
+                    <CompletedNovels
+                      key={idx}
+                      item={item}
+                      isLoading={isLoading}
+                      favoriteBookHandler={favoriteBookHandler}
+                      onClick={() => console.log("Book Card")}
+                    />
+                  ))
+                : completed?.map((item, idx) => (
+                    <CompletedNovels
+                      key={idx}
+                      item={item}
+                      isLoading={isLoading}
+                      favoriteBookHandler={favoriteBookHandler}
+                      onClick={() => console.log("Book Card")}
+                    />
+                  ))}
+            </div>
           </div>
-        </div>
+        )}
 
         {/* Recent Chapter Updates  */}
         <p className="recent-updates-label">Recent Chapter Updates</p>
 
         <div className="books-table mt-3 mb-5">
-          <table class="table recent-update-table table-striped">
-            <thead class="table-header">
+          <table className="table recent-update-table table-striped">
+            <thead className="table-header">
               <tr>
-                <th scope="col" className="pl-4 border-0 table-header-labels">
+                <th
+                  scope="col"
+                  className="pl-4 border-0 table-header-labels th-1"
+                >
                   Book
                 </th>
-                <th scope="col" className="border-0 table-header-labels">
+                <th scope="col" className="border-0 table-header-labels th-2">
                   Chapter
                 </th>
-                <th scope="col" className="border-0 table-header-labels">
+                <th scope="col" className="border-0 table-header-labels th-2">
                   Time
                 </th>
                 <th scope="col" className="border-0"></th>
@@ -645,7 +508,8 @@ function HomePage() {
             </thead>
             <tbody>
               {chapterUpdates.map((item, idx) => (
-                <tr>
+                // <tr key={idx} className={(idx % 2 !== 0 && "color-border"}>
+                <tr key={idx} className={`${idx % 2 !== 0 && "color-border"}`}>
                   <td className="border-0 ">
                     <p className="table-labels pl-4">{item.name} </p>
                   </td>
@@ -670,6 +534,9 @@ function HomePage() {
       {/* </div> */}
     </>
   );
-}
+};
 
-export default HomePage;
+const mapstatetoprops = ({ authReducer, booksReducer, libraryReducer }) => {
+  return { authReducer, booksReducer, libraryReducer };
+};
+export default connect(mapstatetoprops, actions)(HomePage);

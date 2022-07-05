@@ -1,4 +1,4 @@
-import { faThLarge } from "@fortawesome/free-solid-svg-icons";
+import { faThLarge,faCaretRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import Slider from "react-slick";
@@ -29,10 +29,20 @@ function SamplePrevArrow(props) {
       }}
       onClick={onClick}
     >
-      <FontAwesomeIcon icon={faThLarge} />
+      <FontAwesomeIcon icon={faCaretRight} />
     </div>
   );
 }
+// function SamplePrevArrow(props) {
+//   const { className, style, onClick } = props;
+//   return (
+//     <div
+//       className={className}
+//       style={{ ...style, display: "block", background: "green" }}
+//       onClick={onClick}
+//     />
+//   );
+// }
 
 function SliderComp({ images }) {
   var settings = {
@@ -89,7 +99,7 @@ function SliderComp({ images }) {
         //     backgroundColor: "red",
         //   }}
         // >
-        <img src={ele.image} className="slider-image" />
+        <img key={idx} src={ele.image} className="slider-image" />
         // </div>
       ))}
     </Slider>
